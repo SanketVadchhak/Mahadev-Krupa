@@ -1,3 +1,5 @@
+'use client';
+
 import { useState, useEffect, useRef, useCallback } from 'react';
 import { motion, useScroll, useTransform, useInView, AnimatePresence } from 'framer-motion';
 import {
@@ -1244,8 +1246,8 @@ function Footer() {
   );
 }
 
-// ─── Main App ────────────────────────────────────────────
-export function App() {
+// ─── Main Page ────────────────────────────────────────────
+export default function HomePage() {
   return (
     <div className="relative min-h-screen bg-dark-bg text-white">
       <ParticleField />
