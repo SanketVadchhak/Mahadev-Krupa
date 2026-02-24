@@ -70,21 +70,13 @@ input[type="submit"] {
   border: 1px solid rgba(212, 168, 67, 0.2);
 }
 
-/* 3D Card Effect — disabled on touch devices */
+/* 3D Card Effect — fully removed, was causing iOS overflow escape */
 .card-3d {
-  transform-style: preserve-3d;
-  perspective: 1000px;
-  transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
-}
-
-@media (hover: hover) and (pointer: fine) {
-  .card-3d:hover {
-    transform: rotateY(5deg) rotateX(5deg) translateZ(20px);
-  }
+  transition: box-shadow 0.3s ease;
 }
 
 .card-3d-inner {
-  transform-style: preserve-3d;
+  /* no transform-style needed */
 }
 
 /* Gradient Text */
@@ -123,15 +115,15 @@ input[type="submit"] {
 
   0%,
   100% {
-    transform: translateY(0px) rotate(0deg);
+    transform: translateY(0px);
   }
 
   33% {
-    transform: translateY(-10px) rotate(1deg);
+    transform: translateY(-8px);
   }
 
   66% {
-    transform: translateY(5px) rotate(-1deg);
+    transform: translateY(4px);
   }
 }
 

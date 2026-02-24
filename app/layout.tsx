@@ -82,8 +82,8 @@ export default function RootLayout({
             lang="en"
             className={`${inter.variable} ${playfairDisplay.variable} ${spaceGrotesk.variable}`}
         >
-            <body style={{ overflowX: 'hidden', maxWidth: '100vw', position: 'relative' }}>
-                <div style={{ overflowX: 'hidden', width: '100%', position: 'relative' }}>
+            <body style={{ overflowX: 'clip', maxWidth: '100vw', position: 'relative' }}>
+                <div style={{ overflowX: 'clip', width: '100%', position: 'relative' }}>
                     {children}
                 </div>
             </body>

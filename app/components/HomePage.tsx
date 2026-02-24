@@ -199,36 +199,11 @@ function LuxuryCarSVG() {
 }
 
 // ─── 3D Tilt Card ────────────────────────────────────────
+// TiltCard — 3D tilt removed on all devices to prevent iOS overflow escape
 function TiltCard({ children, className = '' }: { children: React.ReactNode; className?: string }) {
-  const cardRef = useRef<HTMLDivElement>(null);
-  const [style, setStyle] = useState<React.CSSProperties>({});
-
-  const handleMouseMove = useCallback((e: React.MouseEvent) => {
-    if (!cardRef.current) return;
-    const rect = cardRef.current.getBoundingClientRect();
-    const x = (e.clientX - rect.left) / rect.width - 0.5;
-    const y = (e.clientY - rect.top) / rect.height - 0.5;
-    setStyle({
-      transform: `perspective(1000px) rotateY(${x * 15}deg) rotateX(${-y * 15}deg) translateZ(20px)`,
-      transition: 'transform 0.1s ease',
-    });
-  }, []);
-
-  const handleMouseLeave = useCallback(() => {
-    setStyle({
-      transform: 'perspective(1000px) rotateY(0deg) rotateX(0deg) translateZ(0px)',
-      transition: 'transform 0.5s ease',
-    });
-  }, []);
-
   return (
     <div
-      ref={cardRef}
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
-      style={style}
-      className={`${className}`}
-      data-hover
+      className={`${className} transition-shadow duration-300`}
     >
       {children}
     </div>
@@ -1092,11 +1067,7 @@ function FloatingButtons() {
   }, []);
 
   return (
-    // GPU composited layer prevents iOS scroll jitter on fixed elements
-    <div
-      className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 flex flex-col gap-2 sm:gap-3"
-      style={{ transform: 'translate3d(0,0,0)', willChange: 'transform' }}
-    >
+    <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 flex flex-col gap-2 sm:gap-3">
       <AnimatePresence>
         {showTop && (
           <motion.button
@@ -1112,33 +1083,21 @@ function FloatingButtons() {
         )}
       </AnimatePresence>
 
-      <motion.a
+      <a
         href="tel:+919876543210"
-        initial={{ opacity: 0, scale: 0 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ delay: 1 }}
-        whileHover={{ scale: 1.1 }}
-        whileTap={{ scale: 0.95 }}
-        className="w-14 h-14 rounded-full bg-gradient-to-br from-amber-500 to-yellow-600 flex items-center justify-center shadow-lg shadow-amber-500/30 hover:shadow-xl hover:shadow-amber-500/40 transition-all duration-300"
-        data-hover
+        className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-gradient-to-br from-amber-500 to-yellow-600 flex items-center justify-center shadow-lg shadow-amber-500/30 hover:shadow-xl hover:shadow-amber-500/40 transition-all duration-300 active:scale-95"
       >
-        <Phone size={22} className="text-white" />
-      </motion.a>
+        <Phone size={20} className="text-white" />
+      </a>
 
-      <motion.a
+      <a
         href="https://wa.me/919876543210"
         target="_blank"
         rel="noopener noreferrer"
-        initial={{ opacity: 0, scale: 0 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ delay: 1.2 }}
-        whileHover={{ scale: 1.1 }}
-        whileTap={{ scale: 0.95 }}
-        className="w-14 h-14 rounded-full bg-gradient-to-br from-amber-600 to-yellow-700 flex items-center justify-center shadow-lg shadow-amber-600/30 hover:shadow-xl hover:shadow-amber-600/40 transition-all duration-300"
-        data-hover
+        className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-gradient-to-br from-amber-600 to-yellow-700 flex items-center justify-center shadow-lg shadow-amber-600/30 hover:shadow-xl hover:shadow-amber-600/40 transition-all duration-300 active:scale-95"
       >
-        <MessageCircle size={22} className="text-white" />
-      </motion.a>
+        <MessageCircle size={20} className="text-white" />
+      </a>
     </div >
   );
 }
@@ -1257,7 +1216,7 @@ function Footer() {
 // ─── Main Page ────────────────────────────────────────────
 export default function HomePage() {
   return (
-    <div className="relative min-h-screen bg-dark-bg text-white" style={{ overflowX: 'hidden' }}>
+    <div className="relative min-h-screen bg-dark-bg text-white" style={{ overflowX: 'clip' }}>
       <ParticleField />
       <Navbar />
       <HeroSection />
