@@ -82,7 +82,11 @@ export default function RootLayout({
             lang="en"
             className={`${inter.variable} ${playfairDisplay.variable} ${spaceGrotesk.variable}`}
         >
-            <body>{children}</body>
+            <body style={{ overflowX: 'hidden', maxWidth: '100vw', position: 'relative' }}>
+                <div style={{ overflowX: 'hidden', width: '100%', position: 'relative' }}>
+                    {children}
+                </div>
+            </body>
         </html>
     );
 }

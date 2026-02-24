@@ -13,15 +13,15 @@ import {
 // ─── Particle Background ────────────────────────────────
 function ParticleField() {
   const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
-  const count = isMobile ? 15 : 40;
+  const count = isMobile ? 12 : 35;
   const particles = Array.from({ length: count }, (_, i) => ({
     id: i,
-    x: Math.random() * 100,
+    x: Math.random() * 95, // cap at 95% to prevent horizontal overflow
     y: Math.random() * 100,
-    size: Math.random() * 3 + 1,
+    size: Math.random() * 2 + 1,
     duration: Math.random() * 10 + 6,
     delay: Math.random() * 5,
-    opacity: Math.random() * 0.4 + 0.1,
+    opacity: Math.random() * 0.3 + 0.05,
   }));
 
   return (
@@ -373,30 +373,32 @@ function HeroSection() {
 
   return (
     <section id="hero" className="relative min-h-screen flex items-center overflow-hidden">
-      {/* Background Elements */}
-      <div className="absolute inset-0">
-        <div className="absolute top-20 left-10 w-96 h-96 bg-amber-500/5 rounded-full blur-3xl" />
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-yellow-500/5 rounded-full blur-3xl" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-amber-400/3 rounded-full blur-3xl" />
+      {/* Background Elements — constrained to not overflow */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute top-20 left-10 w-48 h-48 sm:w-96 sm:h-96 bg-amber-500/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-20 right-10 w-48 h-48 sm:w-96 sm:h-96 bg-yellow-500/5 rounded-full blur-3xl" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 h-72 sm:w-[600px] sm:h-[600px] bg-amber-400/3 rounded-full blur-3xl" />
       </div>
 
       {/* Grid Pattern */}
       <div className="absolute inset-0 grid-pattern opacity-50" />
 
-      {/* Rotating ring */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] opacity-10">
-        <div className="w-full h-full rounded-full border border-amber-500/30 animate-spin-slow" />
-        <div className="absolute inset-8 rounded-full border border-yellow-400/20 animate-spin-slow" style={{ animationDirection: 'reverse', animationDuration: '30s' }} />
-        <div className="absolute inset-16 rounded-full border border-amber-300/20 animate-spin-slow" style={{ animationDuration: '25s' }} />
+      {/* Rotating rings — hidden on very small screens, overflow-hidden so they can't bleed */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none hidden sm:block">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] opacity-10">
+          <div className="w-full h-full rounded-full border border-amber-500/30 animate-spin-slow" />
+          <div className="absolute inset-8 rounded-full border border-yellow-400/20 animate-spin-slow" style={{ animationDirection: 'reverse', animationDuration: '30s' }} />
+          <div className="absolute inset-16 rounded-full border border-amber-300/20 animate-spin-slow" style={{ animationDuration: '25s' }} />
+        </div>
       </div>
 
-      <motion.div style={{ opacity }} className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+      <motion.div style={{ opacity }} className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 sm:pt-24">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           {/* Left Content */}
-          <motion.div style={{ y: y2 }}>
+          <motion.div>
             <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              animate={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
               <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass mb-6 text-sm">
@@ -467,11 +469,11 @@ function HeroSection() {
             </motion.div>
           </motion.div>
 
-          {/* Right - 3D Car */}
-          <motion.div style={{ y: y1 }}>
+          {/* Right - 3D Car — shown below on mobile, beside on desktop */}
+          <motion.div className="mt-8 lg:mt-0">
             <motion.div
-              initial={{ opacity: 0, scale: 0.8, x: 100 }}
-              animate={{ opacity: 1, scale: 1, x: 0 }}
+              initial={{ opacity: 0, scale: 0.85 }}
+              animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 1, delay: 0.5, ease: 'easeOut' }}
             >
               <LuxuryCarSVG />
@@ -1090,7 +1092,11 @@ function FloatingButtons() {
   }, []);
 
   return (
-    <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 flex flex-col gap-2 sm:gap-3">
+    // GPU composited layer prevents iOS scroll jitter on fixed elements
+    <div
+      className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 flex flex-col gap-2 sm:gap-3"
+      style={{ transform: 'translate3d(0,0,0)', willChange: 'transform' }}
+    >
       <AnimatePresence>
         {showTop && (
           <motion.button
@@ -1133,7 +1139,7 @@ function FloatingButtons() {
       >
         <MessageCircle size={22} className="text-white" />
       </motion.a>
-    </div>
+    </div >
   );
 }
 
@@ -1251,7 +1257,7 @@ function Footer() {
 // ─── Main Page ────────────────────────────────────────────
 export default function HomePage() {
   return (
-    <div className="relative min-h-screen bg-dark-bg text-white">
+    <div className="relative min-h-screen bg-dark-bg text-white" style={{ overflowX: 'hidden' }}>
       <ParticleField />
       <Navbar />
       <HeroSection />
