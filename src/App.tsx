@@ -107,13 +107,13 @@ function LuxuryCarSVG() {
       <svg viewBox="0 0 800 350" className="w-full car-body" xmlns="http://www.w3.org/2000/svg">
         <defs>
           <linearGradient id="bodyGrad" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0%" stopColor="#1a1a3e" />
-            <stop offset="50%" stopColor="#0f0f2e" />
-            <stop offset="100%" stopColor="#0a0a20" />
+            <stop offset="0%" stopColor="#2a2a2a" />
+            <stop offset="50%" stopColor="#1e1e1e" />
+            <stop offset="100%" stopColor="#141414" />
           </linearGradient>
           <linearGradient id="windowGrad" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor="#00f5ff" stopOpacity="0.3" />
-            <stop offset="100%" stopColor="#a855f7" stopOpacity="0.15" />
+            <stop offset="0%" stopColor="#D4A843" stopOpacity="0.3" />
+            <stop offset="100%" stopColor="#B8902E" stopOpacity="0.15" />
           </linearGradient>
           <linearGradient id="chromeGrad" x1="0" y1="0" x2="1" y2="0">
             <stop offset="0%" stopColor="#c0c0c0" />
@@ -121,8 +121,8 @@ function LuxuryCarSVG() {
             <stop offset="100%" stopColor="#c0c0c0" />
           </linearGradient>
           <linearGradient id="headlightGrad" x1="0" y1="0" x2="1" y2="0">
-            <stop offset="0%" stopColor="#00f5ff" />
-            <stop offset="100%" stopColor="#a855f7" />
+            <stop offset="0%" stopColor="#D4A843" />
+            <stop offset="100%" stopColor="#F0D080" />
           </linearGradient>
           <filter id="glow">
             <feGaussianBlur stdDeviation="4" result="coloredBlur" />
@@ -133,7 +133,7 @@ function LuxuryCarSVG() {
             <feMerge><feMergeNode in="coloredBlur" /><feMergeNode in="SourceGraphic" /></feMerge>
           </filter>
           <radialGradient id="rimGrad" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stopColor="#a855f7" />
+            <stop offset="0%" stopColor="#D4A843" />
             <stop offset="60%" stopColor="#333" />
             <stop offset="100%" stopColor="#1a1a1a" />
           </radialGradient>
@@ -144,21 +144,21 @@ function LuxuryCarSVG() {
 
         {/* Car Body - Lower */}
         <path d="M120,230 Q100,230 90,220 L80,210 Q75,200 80,195 L140,190 L660,190 L720,195 Q725,200 720,210 L710,220 Q700,230 680,230 Z"
-          fill="url(#bodyGrad)" stroke="#2a2a5e" strokeWidth="1" />
+          fill="url(#bodyGrad)" stroke="#2e2e2e" strokeWidth="1" />
 
         {/* Car Body - Side Panel */}
         <path d="M130,190 L140,160 Q145,150 155,145 L280,120 Q300,115 320,115 L480,115 Q500,115 520,120 L645,145 Q655,150 660,160 L670,190 Z"
-          fill="url(#bodyGrad)" stroke="#2a2a5e" strokeWidth="1" />
+          fill="url(#bodyGrad)" stroke="#2e2e2e" strokeWidth="1" />
 
         {/* Roof */}
         <path d="M260,120 Q270,85 300,75 L500,75 Q530,85 540,120 Z"
-          fill="#0a0a20" stroke="#2a2a5e" strokeWidth="1" />
+          fill="#141414" stroke="#2e2e2e" strokeWidth="1" />
 
         {/* Windows */}
         <path d="M275,118 Q282,92 305,82 L395,82 L395,118 Z"
-          fill="url(#windowGrad)" stroke="#00f5ff" strokeWidth="0.5" opacity="0.8" />
+          fill="url(#windowGrad)" stroke="#D4A843" strokeWidth="0.5" opacity="0.8" />
         <path d="M405,82 L495,82 Q518,92 525,118 L405,118 Z"
-          fill="url(#windowGrad)" stroke="#00f5ff" strokeWidth="0.5" opacity="0.8" />
+          fill="url(#windowGrad)" stroke="#D4A843" strokeWidth="0.5" opacity="0.8" />
 
         {/* Window Divider */}
         <line x1="400" y1="80" x2="400" y2="120" stroke="#c0c0c0" strokeWidth="2" />
@@ -168,67 +168,67 @@ function LuxuryCarSVG() {
         <path d="M260,120 L540,120" stroke="url(#chromeGrad)" strokeWidth="1.5" opacity="0.4" />
 
         {/* Hood Lines */}
-        <path d="M155,145 L280,120" stroke="#2a2a5e" strokeWidth="0.5" opacity="0.5" />
-        <path d="M645,145 L520,120" stroke="#2a2a5e" strokeWidth="0.5" opacity="0.5" />
+        <path d="M155,145 L280,120" stroke="#2e2e2e" strokeWidth="0.5" opacity="0.5" />
+        <path d="M645,145 L520,120" stroke="#2e2e2e" strokeWidth="0.5" opacity="0.5" />
 
         {/* Headlights */}
         <path d="M85,205 L130,195 L130,215 Z" fill="url(#headlightGrad)" filter="url(#glow)" opacity="0.9" />
-        <rect x="82" y="200" width="50" height="3" rx="1" fill="#00f5ff" filter="url(#glow)" opacity="0.8" />
+        <rect x="82" y="200" width="50" height="3" rx="1" fill="#D4A843" filter="url(#glow)" opacity="0.8" />
 
         {/* DRL Strip */}
-        <path d="M85,212 L135,208" stroke="#00f5ff" strokeWidth="2" filter="url(#glow)" strokeLinecap="round" />
+        <path d="M85,212 L135,208" stroke="#D4A843" strokeWidth="2" filter="url(#glow)" strokeLinecap="round" />
 
         {/* Tail Lights */}
-        <path d="M715,205 L670,195 L670,215 Z" fill="#ec4899" filter="url(#glow)" opacity="0.9" />
-        <rect x="668" y="200" width="50" height="3" rx="1" fill="#ec4899" filter="url(#glow)" opacity="0.8" />
-        <path d="M715,212 L665,208" stroke="#ec4899" strokeWidth="2" filter="url(#glow)" strokeLinecap="round" />
+        <path d="M715,205 L670,195 L670,215 Z" fill="#B8902E" filter="url(#glow)" opacity="0.9" />
+        <rect x="668" y="200" width="50" height="3" rx="1" fill="#B8902E" filter="url(#glow)" opacity="0.8" />
+        <path d="M715,212 L665,208" stroke="#B8902E" strokeWidth="2" filter="url(#glow)" strokeLinecap="round" />
 
         {/* Front Grille */}
-        <rect x="90" y="195" width="45" height="25" rx="3" fill="none" stroke="#2a2a5e" strokeWidth="1" />
-        {[0,1,2,3,4].map(i => (
-          <line key={`g${i}`} x1="95" y1={199 + i * 4} x2="130" y2={199 + i * 4} stroke="#1a1a3e" strokeWidth="1" />
+        <rect x="90" y="195" width="45" height="25" rx="3" fill="none" stroke="#2e2e2e" strokeWidth="1" />
+        {[0, 1, 2, 3, 4].map(i => (
+          <line key={`g${i}`} x1="95" y1={199 + i * 4} x2="130" y2={199 + i * 4} stroke="#222222" strokeWidth="1" />
         ))}
 
         {/* Front Wheel */}
         <circle cx="210" cy="235" r="40" fill="#111" stroke="#333" strokeWidth="2" />
         <circle cx="210" cy="235" r="32" fill="url(#rimGrad)" />
         <circle cx="210" cy="235" r="28" fill="none" stroke="#555" strokeWidth="1" />
-        {[0,1,2,3,4].map(i => (
+        {[0, 1, 2, 3, 4].map(i => (
           <line key={`s1${i}`} x1="210" y1="235" x2={210 + 25 * Math.cos(i * 72 * Math.PI / 180)} y2={235 + 25 * Math.sin(i * 72 * Math.PI / 180)}
             stroke="#888" strokeWidth="2" />
         ))}
-        <circle cx="210" cy="235" r="8" fill="#a855f7" filter="url(#glow)" opacity="0.6" />
+        <circle cx="210" cy="235" r="8" fill="#D4A843" filter="url(#glow)" opacity="0.6" />
         <circle cx="210" cy="235" r="4" fill="#333" />
 
         {/* Rear Wheel */}
         <circle cx="590" cy="235" r="40" fill="#111" stroke="#333" strokeWidth="2" />
         <circle cx="590" cy="235" r="32" fill="url(#rimGrad)" />
         <circle cx="590" cy="235" r="28" fill="none" stroke="#555" strokeWidth="1" />
-        {[0,1,2,3,4].map(i => (
+        {[0, 1, 2, 3, 4].map(i => (
           <line key={`s2${i}`} x1="590" y1="235" x2={590 + 25 * Math.cos(i * 72 * Math.PI / 180)} y2={235 + 25 * Math.sin(i * 72 * Math.PI / 180)}
             stroke="#888" strokeWidth="2" />
         ))}
-        <circle cx="590" cy="235" r="8" fill="#a855f7" filter="url(#glow)" opacity="0.6" />
+        <circle cx="590" cy="235" r="8" fill="#D4A843" filter="url(#glow)" opacity="0.6" />
         <circle cx="590" cy="235" r="4" fill="#333" />
 
         {/* Wheel Arches */}
-        <path d="M160,230 Q170,185 210,180 Q250,185 260,230" fill="none" stroke="#2a2a5e" strokeWidth="2" />
-        <path d="M540,230 Q550,185 590,180 Q630,185 640,230" fill="none" stroke="#2a2a5e" strokeWidth="2" />
+        <path d="M160,230 Q170,185 210,180 Q250,185 260,230" fill="none" stroke="#2e2e2e" strokeWidth="2" />
+        <path d="M540,230 Q550,185 590,180 Q630,185 640,230" fill="none" stroke="#2e2e2e" strokeWidth="2" />
 
         {/* Door Handle */}
         <rect x="350" y="155" width="30" height="4" rx="2" fill="#555" opacity="0.6" />
 
         {/* Side Mirror */}
-        <path d="M265,125 L250,135 L250,145 L268,140 Z" fill="#0a0a20" stroke="#2a2a5e" strokeWidth="1" />
+        <path d="M265,125 L250,135 L250,145 L268,140 Z" fill="#141414" stroke="#2e2e2e" strokeWidth="1" />
 
         {/* Accent Line */}
         <path d="M140,175 L660,175" stroke="url(#headlightGrad)" strokeWidth="1" opacity="0.4" />
 
         {/* Ground Reflection Glow */}
-        <ellipse cx="210" cy="280" rx="50" ry="8" fill="#a855f7" opacity="0.15" filter="url(#glowStrong)" />
-        <ellipse cx="590" cy="280" rx="50" ry="8" fill="#a855f7" opacity="0.15" filter="url(#glowStrong)" />
-        <ellipse cx="100" cy="280" rx="40" ry="6" fill="#00f5ff" opacity="0.1" filter="url(#glowStrong)" />
-        <ellipse cx="700" cy="280" rx="40" ry="6" fill="#ec4899" opacity="0.1" filter="url(#glowStrong)" />
+        <ellipse cx="210" cy="280" rx="50" ry="8" fill="#D4A843" opacity="0.15" filter="url(#glowStrong)" />
+        <ellipse cx="590" cy="280" rx="50" ry="8" fill="#D4A843" opacity="0.15" filter="url(#glowStrong)" />
+        <ellipse cx="100" cy="280" rx="40" ry="6" fill="#F0D080" opacity="0.1" filter="url(#glowStrong)" />
+        <ellipse cx="700" cy="280" rx="40" ry="6" fill="#B8902E" opacity="0.1" filter="url(#glowStrong)" />
       </svg>
     </div>
   );
@@ -273,12 +273,12 @@ function TiltCard({ children, className = '' }: { children: React.ReactNode; cla
 
 // ─── Services Data ───────────────────────────────────────
 const services = [
-  { icon: MapPin, title: 'Local Trips', desc: 'Premium city rides with expert local drivers who know every corner of Gujarat.', color: 'from-cyan-500 to-blue-500' },
-  { icon: Navigation, title: 'Outstation Tours', desc: 'Long-distance luxury travel to any destination across India with comfort.', color: 'from-purple-500 to-indigo-500' },
-  { icon: Users, title: 'Family Tours', desc: 'Spacious vehicles & curated family packages for unforgettable memories.', color: 'from-pink-500 to-rose-500' },
-  { icon: Heart, title: 'Wedding & Functions', desc: 'Decorated luxury fleet for your special occasions with red carpet service.', color: 'from-amber-500 to-orange-500' },
-  { icon: Car, title: 'Self Drive', desc: 'Choose your dream car and hit the road on your own terms, fully insured.', color: 'from-emerald-500 to-teal-500' },
-  { icon: Shield, title: 'Safe & Secure', desc: 'All vehicles GPS tracked in real-time. Your safety is our top priority.', color: 'from-violet-500 to-purple-500' },
+  { icon: MapPin, title: 'Local Trips', desc: 'Premium city rides with expert local drivers who know every corner of Gujarat.', color: 'from-amber-500 to-yellow-600' },
+  { icon: Navigation, title: 'Outstation Tours', desc: 'Long-distance luxury travel to any destination across India with comfort.', color: 'from-yellow-600 to-amber-700' },
+  { icon: Users, title: 'Family Tours', desc: 'Spacious vehicles & curated family packages for unforgettable memories.', color: 'from-amber-600 to-yellow-500' },
+  { icon: Heart, title: 'Wedding & Functions', desc: 'Decorated luxury fleet for your special occasions with red carpet service.', color: 'from-yellow-500 to-amber-500' },
+  { icon: Car, title: 'Self Drive', desc: 'Choose your dream car and hit the road on your own terms, fully insured.', color: 'from-amber-400 to-yellow-600' },
+  { icon: Shield, title: 'Safe & Secure', desc: 'All vehicles GPS tracked in real-time. Your safety is our top priority.', color: 'from-yellow-600 to-amber-600' },
 ];
 
 // ─── Fleet Data ──────────────────────────────────────────
@@ -293,15 +293,15 @@ const fleet = [
 
 // ─── Gallery Data ────────────────────────────────────────
 const gallery = [
-  { title: 'Rann of Kutch', h: 'h-64', gradient: 'from-amber-900/60 to-orange-600/40' },
-  { title: 'Gir Forest Safari', h: 'h-80', gradient: 'from-emerald-900/60 to-green-600/40' },
-  { title: 'Somnath Temple', h: 'h-72', gradient: 'from-purple-900/60 to-indigo-600/40' },
-  { title: 'Dwarka', h: 'h-56', gradient: 'from-blue-900/60 to-cyan-600/40' },
-  { title: 'Statue of Unity', h: 'h-96', gradient: 'from-slate-800/60 to-gray-600/40' },
-  { title: 'Saputara Hills', h: 'h-64', gradient: 'from-green-900/60 to-emerald-600/40' },
-  { title: 'Ahmedabad Heritage', h: 'h-80', gradient: 'from-rose-900/60 to-pink-600/40' },
-  { title: 'Royal Wedding Fleet', h: 'h-72', gradient: 'from-yellow-900/60 to-amber-600/40' },
-  { title: 'Mandvi Beach', h: 'h-60', gradient: 'from-sky-900/60 to-blue-600/40' },
+  { title: 'Rann of Kutch', h: 'h-64', gradient: 'from-amber-900/60 to-yellow-700/40' },
+  { title: 'Gir Forest Safari', h: 'h-80', gradient: 'from-yellow-900/60 to-amber-700/40' },
+  { title: 'Somnath Temple', h: 'h-72', gradient: 'from-stone-800/60 to-amber-900/40' },
+  { title: 'Dwarka', h: 'h-56', gradient: 'from-amber-800/60 to-yellow-600/40' },
+  { title: 'Statue of Unity', h: 'h-96', gradient: 'from-neutral-800/60 to-stone-700/40' },
+  { title: 'Saputara Hills', h: 'h-64', gradient: 'from-yellow-900/60 to-amber-800/40' },
+  { title: 'Ahmedabad Heritage', h: 'h-80', gradient: 'from-amber-900/60 to-stone-800/40' },
+  { title: 'Royal Wedding Fleet', h: 'h-72', gradient: 'from-yellow-800/60 to-amber-600/40' },
+  { title: 'Mandvi Beach', h: 'h-60', gradient: 'from-stone-900/60 to-amber-700/40' },
 ];
 
 // ─── Testimonials Data ───────────────────────────────────
@@ -331,14 +331,13 @@ function Navbar() {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.8, ease: 'easeOut' }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled ? 'glass-strong shadow-lg shadow-purple-900/20' : 'bg-transparent'
-      }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled ? 'glass-strong shadow-lg shadow-amber-900/20' : 'bg-transparent'
+        }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 md:h-20">
           <a href="#hero" className="flex items-center gap-3" data-hover>
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-cyan-500 via-purple-500 to-pink-500 flex items-center justify-center animate-gradient-shift">
+            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-amber-500 via-yellow-500 to-amber-600 flex items-center justify-center animate-gradient-shift">
               <span className="text-white font-bold text-lg font-display">M</span>
             </div>
             <div className="hidden sm:block">
@@ -352,16 +351,16 @@ function Navbar() {
               <a
                 key={link}
                 href={`#${link.toLowerCase()}`}
-                className="text-sm text-gray-300 hover:text-neon-cyan transition-colors duration-300 font-medium tracking-wide relative group"
+                className="text-sm text-gray-300 hover:text-amber-400 transition-colors duration-300 font-medium tracking-wide relative group"
                 data-hover
               >
                 {link}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-cyan-500 to-purple-500 group-hover:w-full transition-all duration-300" />
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-amber-400 to-yellow-500 group-hover:w-full transition-all duration-300" />
               </a>
             ))}
             <a
               href="#contact"
-              className="px-5 py-2 rounded-full bg-gradient-to-r from-cyan-500 via-purple-500 to-pink-500 text-white text-sm font-semibold hover:shadow-lg hover:shadow-purple-500/30 transition-all duration-300 animate-gradient-shift"
+              className="px-5 py-2 rounded-full bg-gradient-to-r from-amber-500 via-yellow-500 to-amber-600 text-white text-sm font-semibold hover:shadow-lg hover:shadow-amber-500/30 transition-all duration-300 animate-gradient-shift"
               data-hover
             >
               Book Now
@@ -385,12 +384,12 @@ function Navbar() {
             <div className="px-4 py-4 space-y-3">
               {links.map(link => (
                 <a key={link} href={`#${link.toLowerCase()}`} onClick={() => setMenuOpen(false)}
-                  className="block text-gray-300 hover:text-neon-cyan transition-colors py-2 font-medium" data-hover>
+                  className="block text-gray-300 hover:text-amber-400 transition-colors py-2 font-medium" data-hover>
                   {link}
                 </a>
               ))}
               <a href="#contact" onClick={() => setMenuOpen(false)}
-                className="block text-center px-5 py-2 rounded-full bg-gradient-to-r from-cyan-500 to-pink-500 text-white font-semibold" data-hover>
+                className="block text-center px-5 py-2 rounded-full bg-gradient-to-r from-amber-500 to-yellow-600 text-white font-semibold" data-hover>
                 Book Now
               </a>
             </div>
@@ -412,9 +411,9 @@ function HeroSection() {
     <section id="hero" className="relative min-h-screen flex items-center overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0">
-        <div className="absolute top-20 left-10 w-96 h-96 bg-cyan-500/5 rounded-full blur-3xl" />
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-purple-500/5 rounded-full blur-3xl" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-pink-500/3 rounded-full blur-3xl" />
+        <div className="absolute top-20 left-10 w-96 h-96 bg-amber-500/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-20 right-10 w-96 h-96 bg-yellow-500/5 rounded-full blur-3xl" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-amber-400/3 rounded-full blur-3xl" />
       </div>
 
       {/* Grid Pattern */}
@@ -422,9 +421,9 @@ function HeroSection() {
 
       {/* Rotating ring */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] opacity-10">
-        <div className="w-full h-full rounded-full border border-purple-500/30 animate-spin-slow" />
-        <div className="absolute inset-8 rounded-full border border-cyan-500/20 animate-spin-slow" style={{ animationDirection: 'reverse', animationDuration: '30s' }} />
-        <div className="absolute inset-16 rounded-full border border-pink-500/20 animate-spin-slow" style={{ animationDuration: '25s' }} />
+        <div className="w-full h-full rounded-full border border-amber-500/30 animate-spin-slow" />
+        <div className="absolute inset-8 rounded-full border border-yellow-400/20 animate-spin-slow" style={{ animationDirection: 'reverse', animationDuration: '30s' }} />
+        <div className="absolute inset-16 rounded-full border border-amber-300/20 animate-spin-slow" style={{ animationDuration: '25s' }} />
       </div>
 
       <motion.div style={{ opacity }} className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24">
@@ -437,7 +436,7 @@ function HeroSection() {
               transition={{ duration: 0.8, delay: 0.2 }}
             >
               <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass mb-6 text-sm">
-                <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
+                <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse" />
                 <span className="text-gray-300">Gujarat&apos;s Premier Travel Partner</span>
               </div>
             </motion.div>
@@ -470,7 +469,7 @@ function HeroSection() {
             >
               <a
                 href="#contact"
-                className="group px-8 py-4 rounded-full bg-gradient-to-r from-cyan-500 via-purple-500 to-pink-500 text-white font-semibold text-lg hover:shadow-xl hover:shadow-purple-500/30 transition-all duration-500 animate-gradient-shift flex items-center gap-2"
+                className="group px-8 py-4 rounded-full bg-gradient-to-r from-amber-500 via-yellow-500 to-amber-600 text-white font-semibold text-lg hover:shadow-xl hover:shadow-amber-500/30 transition-all duration-500 animate-gradient-shift flex items-center gap-2"
                 data-hover
               >
                 Book Your Ride
@@ -478,7 +477,7 @@ function HeroSection() {
               </a>
               <a
                 href="#fleet"
-                className="px-8 py-4 rounded-full neon-border text-white font-semibold text-lg hover:shadow-lg hover:shadow-cyan-500/20 transition-all duration-500"
+                className="px-8 py-4 rounded-full neon-border text-white font-semibold text-lg hover:shadow-lg hover:shadow-amber-400/20 transition-all duration-500"
                 data-hover
               >
                 Explore Fleet
@@ -527,11 +526,11 @@ function HeroSection() {
         className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
       >
         <p className="text-xs text-gray-500 tracking-widest uppercase">Scroll Down</p>
-        <div className="w-6 h-10 rounded-full border-2 border-purple-500/30 flex items-start justify-center p-1">
+        <div className="w-6 h-10 rounded-full border-2 border-amber-400/30 flex items-start justify-center p-1">
           <motion.div
             animate={{ y: [0, 16, 0] }}
             transition={{ duration: 2, repeat: Infinity }}
-            className="w-1.5 h-3 rounded-full bg-gradient-to-b from-cyan-500 to-purple-500"
+            className="w-1.5 h-3 rounded-full bg-gradient-to-b from-amber-400 to-yellow-500"
           />
         </div>
       </motion.div>
@@ -546,7 +545,7 @@ function ServicesSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
-          <motion.span className="inline-block text-sm font-semibold text-cyan-400 tracking-widest uppercase mb-4 font-heading">
+          <motion.span className="inline-block text-sm font-semibold text-amber-400 tracking-widest uppercase mb-4 font-heading">
             What We Offer
           </motion.span>
           <h2 className="text-4xl md:text-5xl font-bold font-display mb-4">
@@ -569,7 +568,7 @@ function ServicesSection() {
               transition={{ duration: 0.6, delay: i * 0.1 }}
             >
               <TiltCard className="h-full">
-                <div className="group relative h-full p-8 rounded-2xl glass hover:border-purple-500/30 transition-all duration-500 overflow-hidden">
+                <div className="group relative h-full p-8 rounded-2xl glass hover:border-amber-500/30 transition-all duration-500 overflow-hidden">
                   {/* Background glow */}
                   <div className={`absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl ${s.color} opacity-0 group-hover:opacity-10 blur-2xl transition-opacity duration-500`} />
 
@@ -628,7 +627,7 @@ function FleetSection() {
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end md:justify-between mb-12">
           <div>
-            <span className="text-sm font-semibold text-purple-400 tracking-widest uppercase mb-4 block font-heading">Our Fleet</span>
+            <span className="text-sm font-semibold text-amber-400 tracking-widest uppercase mb-4 block font-heading">Our Fleet</span>
             <h2 className="text-4xl md:text-5xl font-bold font-display">
               <span className="text-white">Luxury </span>
               <span className="gradient-text">Vehicle Fleet</span>
@@ -638,7 +637,7 @@ function FleetSection() {
             <button
               onClick={() => scroll('left')}
               disabled={!canScrollLeft}
-              className={`w-12 h-12 rounded-full glass flex items-center justify-center transition-all duration-300 ${canScrollLeft ? 'hover:bg-purple-500/20 text-white' : 'text-gray-600'}`}
+              className={`w-12 h-12 rounded-full glass flex items-center justify-center transition-all duration-300 ${canScrollLeft ? 'hover:bg-amber-500/20 text-white' : 'text-gray-600'}`}
               data-hover
             >
               <ChevronLeft size={20} />
@@ -646,7 +645,7 @@ function FleetSection() {
             <button
               onClick={() => scroll('right')}
               disabled={!canScrollRight}
-              className={`w-12 h-12 rounded-full glass flex items-center justify-center transition-all duration-300 ${canScrollRight ? 'hover:bg-purple-500/20 text-white' : 'text-gray-600'}`}
+              className={`w-12 h-12 rounded-full glass flex items-center justify-center transition-all duration-300 ${canScrollRight ? 'hover:bg-amber-500/20 text-white' : 'text-gray-600'}`}
               data-hover
             >
               <ChevronRight size={20} />
@@ -668,12 +667,12 @@ function FleetSection() {
             className="shrink-0 w-[340px] sm:w-[380px]"
           >
             <TiltCard className="h-full">
-              <div className="group relative h-full rounded-2xl glass overflow-hidden hover:border-cyan-500/30 transition-all duration-500">
+              <div className="group relative h-full rounded-2xl glass overflow-hidden hover:border-amber-400/30 transition-all duration-500">
                 {/* Car Image Area */}
                 <div className="relative h-48 bg-gradient-to-br from-dark-surface to-dark-card flex items-center justify-center overflow-hidden">
-                  <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/5 to-purple-500/5 group-hover:from-cyan-500/10 group-hover:to-purple-500/10 transition-all duration-500" />
+                  <div className="absolute inset-0 bg-gradient-to-br from-amber-500/5 to-yellow-500/5 group-hover:from-amber-500/10 group-hover:to-yellow-500/10 transition-all duration-500" />
                   <span className="text-8xl group-hover:scale-110 transition-transform duration-500">{car.image}</span>
-                  <div className="absolute top-4 right-4 px-3 py-1 rounded-full glass text-xs text-cyan-400 font-semibold">
+                  <div className="absolute top-4 right-4 px-3 py-1 rounded-full glass text-xs text-amber-400 font-semibold">
                     {car.type}
                   </div>
                 </div>
@@ -684,16 +683,16 @@ function FleetSection() {
 
                   <div className="grid grid-cols-2 gap-3 mb-4">
                     <div className="flex items-center gap-2 text-sm text-gray-400">
-                      <Users size={14} className="text-cyan-400" /> {car.seats} Seats
+                      <Users size={14} className="text-amber-400" /> {car.seats} Seats
                     </div>
                     <div className="flex items-center gap-2 text-sm text-gray-400">
-                      <Fuel size={14} className="text-purple-400" /> {car.fuel}
+                      <Fuel size={14} className="text-amber-300" /> {car.fuel}
                     </div>
                     <div className="flex items-center gap-2 text-sm text-gray-400">
-                      <Gauge size={14} className="text-pink-400" /> {car.power}
+                      <Gauge size={14} className="text-yellow-400" /> {car.power}
                     </div>
                     <div className="flex items-center gap-2 text-sm text-gray-400">
-                      <Settings size={14} className="text-emerald-400" /> {car.trans}
+                      <Settings size={14} className="text-amber-500" /> {car.trans}
                     </div>
                   </div>
 
@@ -706,7 +705,7 @@ function FleetSection() {
                   </div>
 
                   <a href="#contact"
-                    className="w-full block text-center py-3 rounded-xl bg-gradient-to-r from-cyan-500/10 to-purple-500/10 border border-cyan-500/20 text-cyan-400 font-semibold text-sm hover:from-cyan-500/20 hover:to-purple-500/20 transition-all duration-300"
+                    className="w-full block text-center py-3 rounded-xl bg-gradient-to-r from-amber-500/10 to-yellow-500/10 border border-amber-400/20 text-amber-400 font-semibold text-sm hover:from-amber-500/20 hover:to-yellow-500/20 transition-all duration-300"
                     data-hover
                   >
                     Book This Vehicle
@@ -740,11 +739,11 @@ function AboutSection() {
               className="relative"
             >
               {/* Decorative circles */}
-              <div className="absolute -top-8 -left-8 w-64 h-64 rounded-full border border-cyan-500/10 animate-spin-slow" />
-              <div className="absolute -bottom-8 -right-8 w-48 h-48 rounded-full border border-purple-500/10 animate-spin-slow" style={{ animationDirection: 'reverse' }} />
+              <div className="absolute -top-8 -left-8 w-64 h-64 rounded-full border border-amber-400/10 animate-spin-slow" />
+              <div className="absolute -bottom-8 -right-8 w-48 h-48 rounded-full border border-yellow-400/10 animate-spin-slow" style={{ animationDirection: 'reverse' }} />
 
               <div className="relative rounded-2xl glass p-8 overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/5 via-transparent to-purple-500/5" />
+                <div className="absolute inset-0 bg-gradient-to-br from-amber-500/5 via-transparent to-yellow-500/5" />
                 <div className="relative">
                   <div className="grid grid-cols-2 gap-4 mb-6">
                     {[
@@ -758,17 +757,17 @@ function AboutSection() {
                         initial={{ opacity: 0, y: 20 }}
                         animate={isInView ? { opacity: 1, y: 0 } : {}}
                         transition={{ delay: 0.2 + i * 0.1 }}
-                        className="p-4 rounded-xl bg-dark-surface/50 border border-dark-border text-center group hover:border-purple-500/30 transition-all duration-300"
+                        className="p-4 rounded-xl bg-dark-surface/50 border border-dark-border text-center group hover:border-amber-400/30 transition-all duration-300"
                       >
-                        <item.icon className="mx-auto mb-2 text-cyan-400 group-hover:text-purple-400 transition-colors" size={20} />
+                        <item.icon className="mx-auto mb-2 text-amber-400 group-hover:text-yellow-300 transition-colors" size={20} />
                         <p className="text-2xl font-bold gradient-text font-heading">{item.num}</p>
                         <p className="text-xs text-gray-500 mt-1">{item.label}</p>
                       </motion.div>
                     ))}
                   </div>
-                  <div className="h-px bg-gradient-to-r from-transparent via-purple-500/30 to-transparent mb-6" />
+                  <div className="h-px bg-gradient-to-r from-transparent via-amber-500/30 to-transparent mb-6" />
                   <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 rounded-full bg-gradient-to-br from-cyan-500 to-purple-500 flex items-center justify-center shrink-0">
+                    <div className="w-12 h-12 rounded-full bg-gradient-to-br from-amber-500 to-yellow-600 flex items-center justify-center shrink-0">
                       <Shield className="text-white" size={20} />
                     </div>
                     <div>
@@ -783,7 +782,7 @@ function AboutSection() {
 
           {/* Right - Content */}
           <div>
-            <span className="text-sm font-semibold text-pink-400 tracking-widest uppercase mb-4 block font-heading">Our Legacy</span>
+            <span className="text-sm font-semibold text-amber-400 tracking-widest uppercase mb-4 block font-heading">Our Legacy</span>
             <h2 className="text-4xl md:text-5xl font-bold font-display mb-6">
               <span className="text-white">A Decade of </span>
               <span className="gradient-text">Trusted Travel</span>
@@ -793,17 +792,17 @@ function AboutSection() {
                 <strong className="text-white">Mahadev Krupa Tours & Travels</strong> has been Gujarat&apos;s most trusted name in luxury ground transportation for over a decade. Founded with a vision to redefine travel comfort, we have grown from a small fleet to a premier travel agency serving thousands of satisfied clients.
               </p>
               <p>
-                Our commitment goes beyond just providing vehicles. We deliver <span className="text-cyan-400">experiences</span> — from the moment you book to the moment you reach your destination. Every vehicle in our fleet is meticulously maintained, every driver professionally trained, and every journey GPS-tracked for your complete peace of mind.
+                Our commitment goes beyond just providing vehicles. We deliver <span className="text-amber-400">experiences</span> — from the moment you book to the moment you reach your destination. Every vehicle in our fleet is meticulously maintained, every driver professionally trained, and every journey GPS-tracked for your complete peace of mind.
               </p>
               <p>
-                Whether it&apos;s a corporate event, a dream wedding, a family vacation, or a simple airport transfer, we bring the same level of <span className="text-purple-400">dedication and luxury</span> to every ride.
+                Whether it&apos;s a corporate event, a dream wedding, a family vacation, or a simple airport transfer, we bring the same level of <span className="text-yellow-400">dedication and luxury</span> to every ride.
               </p>
             </div>
             <div className="mt-8 flex flex-wrap gap-4">
-              <a href="#contact" className="px-6 py-3 rounded-full bg-gradient-to-r from-cyan-500 to-purple-500 text-white font-semibold hover:shadow-lg hover:shadow-purple-500/30 transition-all duration-300" data-hover>
+              <a href="#contact" className="px-6 py-3 rounded-full bg-gradient-to-r from-amber-500 to-yellow-600 text-white font-semibold hover:shadow-lg hover:shadow-amber-500/30 transition-all duration-300" data-hover>
                 Start Your Journey
               </a>
-              <a href="#fleet" className="px-6 py-3 rounded-full neon-border text-white font-semibold hover:shadow-lg hover:shadow-cyan-500/20 transition-all duration-300" data-hover>
+              <a href="#fleet" className="px-6 py-3 rounded-full neon-border text-white font-semibold hover:shadow-lg hover:shadow-amber-400/20 transition-all duration-300" data-hover>
                 View Our Fleet
               </a>
             </div>
@@ -820,7 +819,7 @@ function GallerySection() {
     <Section id="gallery" className="py-24 md:py-32">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <span className="text-sm font-semibold text-emerald-400 tracking-widest uppercase mb-4 block font-heading">Destinations</span>
+          <span className="text-sm font-semibold text-amber-400 tracking-widest uppercase mb-4 block font-heading">Destinations</span>
           <h2 className="text-4xl md:text-5xl font-bold font-display mb-4">
             <span className="text-white">Explore </span>
             <span className="gradient-text">Our Gallery</span>
@@ -840,7 +839,7 @@ function GallerySection() {
               transition={{ duration: 0.5, delay: i * 0.08 }}
               className="masonry-item"
             >
-              <div className={`group relative ${item.h} rounded-2xl overflow-hidden bg-gradient-to-br ${item.gradient} border border-dark-border hover:border-purple-500/30 transition-all duration-500`} data-hover>
+              <div className={`group relative ${item.h} rounded-2xl overflow-hidden bg-gradient-to-br ${item.gradient} border border-dark-border hover:border-amber-400/30 transition-all duration-500`} data-hover>
                 <div className="absolute inset-0 bg-gradient-to-t from-dark-bg/90 via-transparent to-transparent" />
                 {/* Animated pattern overlay */}
                 <div className="absolute inset-0 grid-pattern opacity-30" />
@@ -898,8 +897,8 @@ function TestimonialsSection() {
               transition={{ duration: 0.5 }}
               className="rounded-2xl glass p-8 md:p-12 text-center relative overflow-hidden"
             >
-              <div className="absolute top-4 left-4 text-6xl text-purple-500/10 font-display">&ldquo;</div>
-              <div className="absolute bottom-4 right-4 text-6xl text-purple-500/10 font-display">&rdquo;</div>
+              <div className="absolute top-4 left-4 text-6xl text-amber-400/10 font-display">&ldquo;</div>
+              <div className="absolute bottom-4 right-4 text-6xl text-amber-400/10 font-display">&rdquo;</div>
 
               <div className="flex justify-center mb-6 gap-1">
                 {Array.from({ length: testimonials[active].rating }).map((_, i) => (
@@ -914,7 +913,7 @@ function TestimonialsSection() {
                 &ldquo;{testimonials[active].text}&rdquo;
               </p>
 
-              <div className="w-16 h-16 rounded-full bg-gradient-to-br from-cyan-500 to-purple-500 mx-auto mb-4 flex items-center justify-center text-2xl font-bold text-white font-display">
+              <div className="w-16 h-16 rounded-full bg-gradient-to-br from-amber-500 to-yellow-600 mx-auto mb-4 flex items-center justify-center text-2xl font-bold text-white font-display">
                 {testimonials[active].name.charAt(0)}
               </div>
               <p className="text-white font-bold text-lg font-heading">{testimonials[active].name}</p>
@@ -929,9 +928,8 @@ function TestimonialsSection() {
             <button
               key={i}
               onClick={() => setActive(i)}
-              className={`h-2 rounded-full transition-all duration-500 ${
-                i === active ? 'w-8 bg-gradient-to-r from-cyan-500 to-purple-500' : 'w-2 bg-gray-600 hover:bg-gray-400'
-              }`}
+              className={`h-2 rounded-full transition-all duration-500 ${i === active ? 'w-8 bg-gradient-to-r from-amber-400 to-yellow-500' : 'w-2 bg-gray-600 hover:bg-gray-400'
+                }`}
               data-hover
             />
           ))}
@@ -946,12 +944,12 @@ function TestimonialsSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
-              className={`p-6 rounded-xl glass hover:border-purple-500/30 transition-all duration-300 ${i === active ? 'border-cyan-500/30' : ''}`}
+              className={`p-6 rounded-xl glass hover:border-amber-400/30 transition-all duration-300 ${i === active ? 'border-amber-400/30' : ''}`}
               data-hover
               onClick={() => setActive(i)}
             >
               <div className="flex items-center gap-3 mb-3">
-                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-cyan-500/30 to-purple-500/30 flex items-center justify-center text-sm font-bold text-white">
+                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-amber-500/30 to-yellow-500/30 flex items-center justify-center text-sm font-bold text-white">
                   {t.name.charAt(0)}
                 </div>
                 <div>
@@ -982,7 +980,7 @@ function ContactSection() {
     setFormData({ name: '', phone: '', email: '', pickup: '', drop: '', date: '', vehicle: '', message: '' });
   };
 
-  const inputClass = "w-full px-4 py-3 rounded-xl bg-dark-surface/50 border border-dark-border text-white placeholder-gray-500 focus:border-cyan-500/50 focus:outline-none focus:ring-1 focus:ring-cyan-500/20 transition-all duration-300 text-sm";
+  const inputClass = "w-full px-4 py-3 rounded-xl bg-dark-surface/50 border border-dark-border text-white placeholder-gray-500 focus:border-amber-400/50 focus:outline-none focus:ring-1 focus:ring-amber-400/20 transition-all duration-300 text-sm";
 
   return (
     <Section id="contact" className="py-24 md:py-32">
@@ -990,7 +988,7 @@ function ContactSection() {
         <div className="grid lg:grid-cols-2 gap-12">
           {/* Left - Info */}
           <div>
-            <span className="text-sm font-semibold text-cyan-400 tracking-widest uppercase mb-4 block font-heading">Get in Touch</span>
+            <span className="text-sm font-semibold text-amber-400 tracking-widest uppercase mb-4 block font-heading">Get in Touch</span>
             <h2 className="text-4xl md:text-5xl font-bold font-display mb-6">
               <span className="text-white">Book Your </span>
               <span className="gradient-text">Dream Ride</span>
@@ -1014,8 +1012,8 @@ function ContactSection() {
                   transition={{ duration: 0.5, delay: i * 0.1 }}
                   className="flex items-start gap-4 group"
                 >
-                  <div className="w-12 h-12 rounded-xl glass flex items-center justify-center shrink-0 group-hover:border-cyan-500/30 transition-all duration-300">
-                    <item.icon size={20} className="text-cyan-400" />
+                  <div className="w-12 h-12 rounded-xl glass flex items-center justify-center shrink-0 group-hover:border-amber-400/30 transition-all duration-300">
+                    <item.icon size={20} className="text-amber-400" />
                   </div>
                   <div>
                     <p className="text-sm text-gray-500">{item.label}</p>
@@ -1035,8 +1033,8 @@ function ContactSection() {
             transition={{ duration: 0.6 }}
           >
             <div className="rounded-2xl glass p-8 relative overflow-hidden">
-              <div className="absolute top-0 right-0 w-48 h-48 bg-gradient-to-bl from-cyan-500/10 to-transparent rounded-full blur-2xl" />
-              <div className="absolute bottom-0 left-0 w-48 h-48 bg-gradient-to-tr from-purple-500/10 to-transparent rounded-full blur-2xl" />
+              <div className="absolute top-0 right-0 w-48 h-48 bg-gradient-to-bl from-amber-500/10 to-transparent rounded-full blur-2xl" />
+              <div className="absolute bottom-0 left-0 w-48 h-48 bg-gradient-to-tr from-yellow-500/10 to-transparent rounded-full blur-2xl" />
 
               <AnimatePresence mode="wait">
                 {submitted ? (
@@ -1046,8 +1044,8 @@ function ContactSection() {
                     exit={{ opacity: 0 }}
                     className="text-center py-12 relative"
                   >
-                    <div className="w-20 h-20 rounded-full bg-gradient-to-br from-green-500/20 to-emerald-500/20 flex items-center justify-center mx-auto mb-4">
-                      <svg className="w-10 h-10 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
+                    <div className="w-20 h-20 rounded-full bg-gradient-to-br from-amber-500/20 to-yellow-500/20 flex items-center justify-center mx-auto mb-4">
+                      <svg className="w-10 h-10 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
                     </div>
                     <h3 className="text-2xl font-bold text-white mb-2 font-heading">Inquiry Sent!</h3>
                     <p className="text-gray-400">Our team will contact you within 30 minutes.</p>
@@ -1063,26 +1061,26 @@ function ContactSection() {
 
                     <div className="grid sm:grid-cols-2 gap-4">
                       <input type="text" placeholder="Your Name *" required value={formData.name}
-                        onChange={e => setFormData({...formData, name: e.target.value})} className={inputClass} />
+                        onChange={e => setFormData({ ...formData, name: e.target.value })} className={inputClass} />
                       <input type="tel" placeholder="Phone Number *" required value={formData.phone}
-                        onChange={e => setFormData({...formData, phone: e.target.value})} className={inputClass} />
+                        onChange={e => setFormData({ ...formData, phone: e.target.value })} className={inputClass} />
                     </div>
 
                     <input type="email" placeholder="Email Address" value={formData.email}
-                      onChange={e => setFormData({...formData, email: e.target.value})} className={inputClass} />
+                      onChange={e => setFormData({ ...formData, email: e.target.value })} className={inputClass} />
 
                     <div className="grid sm:grid-cols-2 gap-4">
                       <input type="text" placeholder="Pickup Location *" required value={formData.pickup}
-                        onChange={e => setFormData({...formData, pickup: e.target.value})} className={inputClass} />
+                        onChange={e => setFormData({ ...formData, pickup: e.target.value })} className={inputClass} />
                       <input type="text" placeholder="Drop Location *" required value={formData.drop}
-                        onChange={e => setFormData({...formData, drop: e.target.value})} className={inputClass} />
+                        onChange={e => setFormData({ ...formData, drop: e.target.value })} className={inputClass} />
                     </div>
 
                     <div className="grid sm:grid-cols-2 gap-4">
                       <input type="date" required value={formData.date}
-                        onChange={e => setFormData({...formData, date: e.target.value})} className={inputClass} />
+                        onChange={e => setFormData({ ...formData, date: e.target.value })} className={inputClass} />
                       <select value={formData.vehicle}
-                        onChange={e => setFormData({...formData, vehicle: e.target.value})}
+                        onChange={e => setFormData({ ...formData, vehicle: e.target.value })}
                         className={inputClass}
                       >
                         <option value="">Select Vehicle</option>
@@ -1091,12 +1089,12 @@ function ContactSection() {
                     </div>
 
                     <textarea placeholder="Special Requests or Message..." rows={3} value={formData.message}
-                      onChange={e => setFormData({...formData, message: e.target.value})}
+                      onChange={e => setFormData({ ...formData, message: e.target.value })}
                       className={`${inputClass} resize-none`}
                     />
 
                     <button type="submit"
-                      className="w-full py-4 rounded-xl bg-gradient-to-r from-cyan-500 via-purple-500 to-pink-500 text-white font-bold text-lg hover:shadow-xl hover:shadow-purple-500/30 transition-all duration-500 animate-gradient-shift flex items-center justify-center gap-2"
+                      className="w-full py-4 rounded-xl bg-gradient-to-r from-amber-500 via-yellow-500 to-amber-600 text-white font-bold text-lg hover:shadow-xl hover:shadow-amber-500/30 transition-all duration-500 animate-gradient-shift flex items-center justify-center gap-2"
                       data-hover
                     >
                       <Send size={18} />
@@ -1136,10 +1134,10 @@ function FloatingButtons() {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0, y: 20 }}
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-            className="w-12 h-12 rounded-full glass flex items-center justify-center hover:bg-purple-500/20 transition-all duration-300 group"
+            className="w-12 h-12 rounded-full glass flex items-center justify-center hover:bg-amber-500/20 transition-all duration-300 group"
             data-hover
           >
-            <ArrowUp size={18} className="text-purple-400 group-hover:text-white transition-colors" />
+            <ArrowUp size={18} className="text-amber-400 group-hover:text-white transition-colors" />
           </motion.button>
         )}
       </AnimatePresence>
@@ -1151,7 +1149,7 @@ function FloatingButtons() {
         transition={{ delay: 1 }}
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.95 }}
-        className="w-14 h-14 rounded-full bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center shadow-lg shadow-cyan-500/30 hover:shadow-xl hover:shadow-cyan-500/40 transition-all duration-300"
+        className="w-14 h-14 rounded-full bg-gradient-to-br from-amber-500 to-yellow-600 flex items-center justify-center shadow-lg shadow-amber-500/30 hover:shadow-xl hover:shadow-amber-500/40 transition-all duration-300"
         data-hover
       >
         <Phone size={22} className="text-white" />
@@ -1166,7 +1164,7 @@ function FloatingButtons() {
         transition={{ delay: 1.2 }}
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.95 }}
-        className="w-14 h-14 rounded-full bg-gradient-to-br from-green-500 to-emerald-600 flex items-center justify-center shadow-lg shadow-green-500/30 hover:shadow-xl hover:shadow-green-500/40 transition-all duration-300"
+        className="w-14 h-14 rounded-full bg-gradient-to-br from-amber-600 to-yellow-700 flex items-center justify-center shadow-lg shadow-amber-600/30 hover:shadow-xl hover:shadow-amber-600/40 transition-all duration-300"
         data-hover
       >
         <MessageCircle size={22} className="text-white" />
@@ -1181,14 +1179,14 @@ function Footer() {
     <footer className="relative pt-24 pb-8 overflow-hidden">
       {/* 33% depth gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-dark-bg to-dark-card" />
-      <div className="absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t from-purple-900/10 to-transparent" />
+      <div className="absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t from-amber-900/10 to-transparent" />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
           {/* Brand */}
           <div className="lg:col-span-1">
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-cyan-500 via-purple-500 to-pink-500 flex items-center justify-center animate-gradient-shift">
+              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-amber-500 via-yellow-500 to-amber-600 flex items-center justify-center animate-gradient-shift">
                 <span className="text-white font-bold text-xl font-display">M</span>
               </div>
               <div>
@@ -1201,10 +1199,10 @@ function Footer() {
             </p>
             <div className="flex gap-3">
               {[
-                { icon: Facebook, color: 'hover:bg-blue-500/20 hover:text-blue-400' },
-                { icon: Instagram, color: 'hover:bg-pink-500/20 hover:text-pink-400' },
-                { icon: Twitter, color: 'hover:bg-sky-500/20 hover:text-sky-400' },
-                { icon: Youtube, color: 'hover:bg-red-500/20 hover:text-red-400' },
+                { icon: Facebook, color: 'hover:bg-amber-500/20 hover:text-amber-400' },
+                { icon: Instagram, color: 'hover:bg-amber-500/20 hover:text-amber-400' },
+                { icon: Twitter, color: 'hover:bg-amber-500/20 hover:text-amber-400' },
+                { icon: Youtube, color: 'hover:bg-amber-500/20 hover:text-amber-400' },
               ].map((s, i) => (
                 <a key={i} href="#" className={`w-10 h-10 rounded-xl glass flex items-center justify-center text-gray-400 ${s.color} transition-all duration-300`} data-hover>
                   <s.icon size={18} />
@@ -1219,7 +1217,7 @@ function Footer() {
             <ul className="space-y-3">
               {['Services', 'Fleet', 'About Us', 'Gallery', 'Testimonials', 'Contact'].map(link => (
                 <li key={link}>
-                  <a href={`#${link.toLowerCase().replace(' ', '')}`} className="text-gray-400 hover:text-cyan-400 transition-colors text-sm flex items-center gap-2 group" data-hover>
+                  <a href={`#${link.toLowerCase().replace(' ', '')}`} className="text-gray-400 hover:text-amber-400 transition-colors text-sm flex items-center gap-2 group" data-hover>
                     <ChevronRight size={14} className="group-hover:translate-x-1 transition-transform" />
                     {link}
                   </a>
@@ -1234,7 +1232,7 @@ function Footer() {
             <ul className="space-y-3">
               {services.map(s => (
                 <li key={s.title}>
-                  <a href="#services" className="text-gray-400 hover:text-purple-400 transition-colors text-sm flex items-center gap-2 group" data-hover>
+                  <a href="#services" className="text-gray-400 hover:text-amber-400 transition-colors text-sm flex items-center gap-2 group" data-hover>
                     <ChevronRight size={14} className="group-hover:translate-x-1 transition-transform" />
                     {s.title}
                   </a>
@@ -1248,19 +1246,19 @@ function Footer() {
             <h4 className="text-white font-bold mb-6 font-heading">Contact Info</h4>
             <ul className="space-y-4">
               <li className="flex items-start gap-3">
-                <MapPin size={16} className="text-cyan-400 mt-0.5 shrink-0" />
+                <MapPin size={16} className="text-amber-400 mt-0.5 shrink-0" />
                 <span className="text-gray-400 text-sm">123 Travel Plaza, CG Road,<br />Ahmedabad, Gujarat 380009</span>
               </li>
               <li className="flex items-center gap-3">
-                <Phone size={16} className="text-cyan-400 shrink-0" />
+                <Phone size={16} className="text-amber-400 shrink-0" />
                 <span className="text-gray-400 text-sm">+91 98765 43210</span>
               </li>
               <li className="flex items-center gap-3">
-                <Mail size={16} className="text-cyan-400 shrink-0" />
+                <Mail size={16} className="text-amber-400 shrink-0" />
                 <span className="text-gray-400 text-sm">info@mahadevkrupa.com</span>
               </li>
               <li className="flex items-center gap-3">
-                <Clock size={16} className="text-cyan-400 shrink-0" />
+                <Clock size={16} className="text-amber-400 shrink-0" />
                 <span className="text-gray-400 text-sm">24/7 Service Available</span>
               </li>
             </ul>
@@ -1268,7 +1266,7 @@ function Footer() {
         </div>
 
         {/* Divider */}
-        <div className="h-px bg-gradient-to-r from-transparent via-purple-500/30 to-transparent mb-8" />
+        <div className="h-px bg-gradient-to-r from-transparent via-amber-500/30 to-transparent mb-8" />
 
         {/* Bottom */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
@@ -1297,37 +1295,37 @@ export function App() {
 
       {/* Section Divider */}
       <div className="max-w-7xl mx-auto px-8">
-        <div className="h-px bg-gradient-to-r from-transparent via-purple-500/20 to-transparent" />
+        <div className="h-px bg-gradient-to-r from-transparent via-amber-500/20 to-transparent" />
       </div>
 
       <ServicesSection />
 
       <div className="max-w-7xl mx-auto px-8">
-        <div className="h-px bg-gradient-to-r from-transparent via-cyan-500/20 to-transparent" />
+        <div className="h-px bg-gradient-to-r from-transparent via-yellow-400/20 to-transparent" />
       </div>
 
       <FleetSection />
 
       <div className="max-w-7xl mx-auto px-8">
-        <div className="h-px bg-gradient-to-r from-transparent via-pink-500/20 to-transparent" />
+        <div className="h-px bg-gradient-to-r from-transparent via-amber-400/20 to-transparent" />
       </div>
 
       <AboutSection />
 
       <div className="max-w-7xl mx-auto px-8">
-        <div className="h-px bg-gradient-to-r from-transparent via-purple-500/20 to-transparent" />
+        <div className="h-px bg-gradient-to-r from-transparent via-amber-500/20 to-transparent" />
       </div>
 
       <GallerySection />
 
       <div className="max-w-7xl mx-auto px-8">
-        <div className="h-px bg-gradient-to-r from-transparent via-cyan-500/20 to-transparent" />
+        <div className="h-px bg-gradient-to-r from-transparent via-yellow-400/20 to-transparent" />
       </div>
 
       <TestimonialsSection />
 
       <div className="max-w-7xl mx-auto px-8">
-        <div className="h-px bg-gradient-to-r from-transparent via-pink-500/20 to-transparent" />
+        <div className="h-px bg-gradient-to-r from-transparent via-amber-400/20 to-transparent" />
       </div>
 
       <ContactSection />

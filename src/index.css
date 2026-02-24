@@ -1,14 +1,14 @@
 @import "tailwindcss";
 
 @theme {
-  --color-neon-cyan: #00f5ff;
-  --color-neon-purple: #a855f7;
-  --color-neon-pink: #ec4899;
-  --color-neon-blue: #3b82f6;
-  --color-dark-bg: #050510;
-  --color-dark-card: #0a0a1a;
-  --color-dark-surface: #111128;
-  --color-dark-border: #1a1a3e;
+  --color-neon-cyan: #D4A843;
+  --color-neon-purple: #E8E8E8;
+  --color-neon-pink: #B8902E;
+  --color-neon-blue: #D4A843;
+  --color-dark-bg: #111111;
+  --color-dark-card: #1a1a1a;
+  --color-dark-surface: #222222;
+  --color-dark-border: #2e2e2e;
   --font-display: 'Playfair Display', serif;
   --font-body: 'Inter', sans-serif;
   --font-heading: 'Space Grotesk', sans-serif;
@@ -17,7 +17,7 @@
 * {
   cursor: none !important;
   scrollbar-width: thin;
-  scrollbar-color: rgba(168, 85, 247, 0.4) rgba(5, 5, 16, 0.8);
+  scrollbar-color: rgba(212, 168, 67, 0.4) rgba(17, 17, 17, 0.8);
 }
 
 html {
@@ -28,7 +28,7 @@ html {
 body {
   font-family: 'Inter', sans-serif;
   background: var(--color-dark-bg);
-  color: #e2e8f0;
+  color: #F0F0F0;
   overflow-x: hidden;
 }
 
@@ -36,10 +36,10 @@ body {
   width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: rgba(5, 5, 16, 0.8);
+  background: rgba(17, 17, 17, 0.8);
 }
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, #a855f7, #ec4899);
+  background: linear-gradient(180deg, #D4A843, #B8902E);
   border-radius: 3px;
 }
 
@@ -47,7 +47,7 @@ body {
 .custom-cursor {
   width: 20px;
   height: 20px;
-  border: 2px solid #00f5ff;
+  border: 2px solid #D4A843;
   border-radius: 50%;
   position: fixed;
   pointer-events: none;
@@ -59,7 +59,7 @@ body {
 .custom-cursor-dot {
   width: 6px;
   height: 6px;
-  background: #00f5ff;
+  background: #D4A843;
   border-radius: 50%;
   position: fixed;
   pointer-events: none;
@@ -69,23 +69,23 @@ body {
 
 .cursor-hover {
   transform: scale(2.5);
-  background: rgba(0, 245, 255, 0.15);
-  border-color: #ec4899;
+  background: rgba(212, 168, 67, 0.15);
+  border-color: #B8902E;
 }
 
 /* Glassmorphism */
 .glass {
-  background: rgba(10, 10, 26, 0.6);
+  background: rgba(26, 26, 26, 0.6);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(168, 85, 247, 0.15);
+  border: 1px solid rgba(212, 168, 67, 0.15);
 }
 
 .glass-strong {
-  background: rgba(10, 10, 26, 0.8);
+  background: rgba(26, 26, 26, 0.8);
   backdrop-filter: blur(30px);
   -webkit-backdrop-filter: blur(30px);
-  border: 1px solid rgba(168, 85, 247, 0.2);
+  border: 1px solid rgba(212, 168, 67, 0.2);
 }
 
 /* 3D Card Effect */
@@ -105,14 +105,14 @@ body {
 
 /* Gradient Text */
 .gradient-text {
-  background: linear-gradient(135deg, #00f5ff, #a855f7, #ec4899);
+  background: linear-gradient(135deg, #D4A843, #F0F0F0, #B8902E);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
 .gradient-text-gold {
-  background: linear-gradient(135deg, #00f5ff, #a855f7);
+  background: linear-gradient(135deg, #D4A843, #E8E8E8);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -120,16 +120,16 @@ body {
 
 /* Neon Glow Effects */
 .neon-glow {
-  box-shadow: 0 0 15px rgba(0, 245, 255, 0.3), 0 0 30px rgba(0, 245, 255, 0.15), 0 0 60px rgba(168, 85, 247, 0.1);
+  box-shadow: 0 0 15px rgba(212, 168, 67, 0.3), 0 0 30px rgba(212, 168, 67, 0.15), 0 0 60px rgba(184, 144, 46, 0.1);
 }
 
 .neon-glow-pink {
-  box-shadow: 0 0 15px rgba(236, 72, 153, 0.3), 0 0 30px rgba(236, 72, 153, 0.15);
+  box-shadow: 0 0 15px rgba(184, 144, 46, 0.3), 0 0 30px rgba(184, 144, 46, 0.15);
 }
 
 .neon-border {
   border: 1px solid transparent;
-  background-image: linear-gradient(rgba(10, 10, 26, 0.9), rgba(10, 10, 26, 0.9)), linear-gradient(135deg, #00f5ff, #a855f7, #ec4899);
+  background-image: linear-gradient(rgba(26, 26, 26, 0.9), rgba(26, 26, 26, 0.9)), linear-gradient(135deg, #D4A843, #E8E8E8, #B8902E);
   background-origin: border-box;
   background-clip: padding-box, border-box;
 }
@@ -147,8 +147,8 @@ body {
 }
 
 @keyframes pulse-neon {
-  0%, 100% { opacity: 1; box-shadow: 0 0 20px rgba(0, 245, 255, 0.4); }
-  50% { opacity: 0.8; box-shadow: 0 0 40px rgba(0, 245, 255, 0.6), 0 0 80px rgba(168, 85, 247, 0.3); }
+  0%, 100% { opacity: 1; box-shadow: 0 0 20px rgba(212, 168, 67, 0.4); }
+  50% { opacity: 0.8; box-shadow: 0 0 40px rgba(212, 168, 67, 0.6), 0 0 80px rgba(184, 144, 46, 0.3); }
 }
 
 @keyframes gradient-shift {
@@ -184,8 +184,8 @@ body {
 /* Grid Pattern Background */
 .grid-pattern {
   background-image:
-    linear-gradient(rgba(168, 85, 247, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(168, 85, 247, 0.03) 1px, transparent 1px);
+    linear-gradient(rgba(212, 168, 67, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(212, 168, 67, 0.03) 1px, transparent 1px);
   background-size: 60px 60px;
 }
 
@@ -202,7 +202,7 @@ body {
 
 /* Luxury Car SVG Animation */
 .car-body {
-  filter: drop-shadow(0 20px 40px rgba(0, 245, 255, 0.2));
+  filter: drop-shadow(0 20px 40px rgba(212, 168, 67, 0.2));
 }
 
 .car-reflection {
@@ -252,7 +252,7 @@ body {
   position: absolute;
   inset: -5px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(0, 245, 255, 0.2), transparent 70%);
+  background: radial-gradient(circle, rgba(212, 168, 67, 0.2), transparent 70%);
   z-index: -1;
   opacity: 0;
   transition: opacity 0.4s ease;
@@ -266,7 +266,7 @@ body {
   position: absolute;
   width: 2px;
   height: 2px;
-  background: rgba(0, 245, 255, 0.5);
+  background: rgba(212, 168, 67, 0.5);
   border-radius: 50%;
   animation: float-slow var(--duration, 8s) ease-in-out infinite;
   animation-delay: var(--delay, 0s);
