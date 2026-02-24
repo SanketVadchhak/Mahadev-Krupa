@@ -22,6 +22,8 @@
 html {
   scroll-behavior: smooth;
   background: var(--color-dark-bg);
+  overflow-x: hidden;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
@@ -29,6 +31,15 @@ body {
   background: var(--color-dark-bg);
   color: #F0F0F0;
   overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Remove 300ms tap delay on touch devices */
+a,
+button,
+[role="button"],
+input[type="submit"] {
+  touch-action: manipulation;
 }
 
 ::-webkit-scrollbar {
@@ -59,15 +70,17 @@ body {
   border: 1px solid rgba(212, 168, 67, 0.2);
 }
 
-/* 3D Card Effect */
+/* 3D Card Effect — disabled on touch devices */
 .card-3d {
   transform-style: preserve-3d;
   perspective: 1000px;
   transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
-.card-3d:hover {
-  transform: rotateY(5deg) rotateX(5deg) translateZ(20px);
+@media (hover: hover) and (pointer: fine) {
+  .card-3d:hover {
+    transform: rotateY(5deg) rotateX(5deg) translateZ(20px);
+  }
 }
 
 .card-3d-inner {
@@ -249,12 +262,27 @@ body {
   .masonry-grid {
     columns: 1;
   }
+
+  /* Reduce floating animation intensity on mobile */
+  .animate-float {
+    animation-duration: 8s;
+  }
+
+  /* Reduce spin animations on mobile for performance */
+  .animate-spin-slow {
+    animation-duration: 40s;
+  }
 }
 
 @media (min-width: 769px) and (max-width: 1024px) {
   .masonry-grid {
     columns: 2;
   }
+}
+
+/* Smooth tap highlight removal on mobile */
+* {
+  -webkit-tap-highlight-color: transparent;
 }
 
 /* Service icon glow */

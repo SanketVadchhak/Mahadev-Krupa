@@ -12,7 +12,9 @@ import {
 
 // ─── Particle Background ────────────────────────────────
 function ParticleField() {
-  const particles = Array.from({ length: 40 }, (_, i) => ({
+  const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
+  const count = isMobile ? 15 : 40;
+  const particles = Array.from({ length: count }, (_, i) => ({
     id: i,
     x: Math.random() * 100,
     y: Math.random() * 100,
@@ -46,7 +48,7 @@ function ParticleField() {
 // ─── Section Wrapper with scroll animation ───────────────
 function Section({ children, className = '', id = '' }: { children: React.ReactNode; className?: string; id?: string }) {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const isInView = useInView(ref, { once: true, margin: "-50px" });
 
   return (
     <motion.section
@@ -407,7 +409,7 @@ function HeroSection() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="text-5xl sm:text-6xl lg:text-7xl font-bold leading-tight mb-6 font-display"
+              className="text-4xl sm:text-5xl lg:text-7xl font-bold leading-tight mb-6 font-display"
             >
               <span className="text-white">Journey in</span>
               <br />
@@ -418,7 +420,7 @@ function HeroSection() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
-              className="text-xl text-gray-400 mb-8 max-w-lg font-heading"
+              className="text-base sm:text-xl text-gray-400 mb-6 sm:mb-8 max-w-lg font-heading"
             >
               The Name of Trusted Travel — Experience Gujarat and beyond in unmatched comfort and style.
             </motion.p>
@@ -431,7 +433,7 @@ function HeroSection() {
             >
               <a
                 href="#contact"
-                className="group px-8 py-4 rounded-full bg-gradient-to-r from-amber-500 via-yellow-500 to-amber-600 text-white font-semibold text-lg hover:shadow-xl hover:shadow-amber-500/30 transition-all duration-500 animate-gradient-shift flex items-center gap-2"
+                className="group px-6 py-3 sm:px-8 sm:py-4 rounded-full bg-gradient-to-r from-amber-500 via-yellow-500 to-amber-600 text-white font-semibold text-base sm:text-lg hover:shadow-xl hover:shadow-amber-500/30 transition-all duration-500 animate-gradient-shift flex items-center gap-2"
                 data-hover
               >
                 Book Your Ride
@@ -439,7 +441,7 @@ function HeroSection() {
               </a>
               <a
                 href="#fleet"
-                className="px-8 py-4 rounded-full neon-border text-white font-semibold text-lg hover:shadow-lg hover:shadow-amber-400/20 transition-all duration-500"
+                className="px-6 py-3 sm:px-8 sm:py-4 rounded-full neon-border text-white font-semibold text-base sm:text-lg hover:shadow-lg hover:shadow-amber-400/20 transition-all duration-500"
                 data-hover
               >
                 Explore Fleet
@@ -450,7 +452,7 @@ function HeroSection() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.8, delay: 1.2 }}
-              className="flex items-center gap-8 mt-12"
+              className="flex items-center flex-wrap gap-6 sm:gap-8 mt-8 sm:mt-12"
             >
               {[
                 { num: '500+', label: 'Happy Clients' },
@@ -503,18 +505,18 @@ function HeroSection() {
 // ─── Services Section ────────────────────────────────────
 function ServicesSection() {
   return (
-    <Section id="services" className="py-24 md:py-32">
+    <Section id="services" className="py-16 md:py-24 lg:py-32">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-10 md:mb-16">
           <motion.span className="inline-block text-sm font-semibold text-amber-400 tracking-widest uppercase mb-4 font-heading">
             What We Offer
           </motion.span>
-          <h2 className="text-4xl md:text-5xl font-bold font-display mb-4">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold font-display mb-4">
             <span className="text-white">Our Premium </span>
             <span className="gradient-text">Services</span>
           </h2>
-          <p className="text-gray-400 max-w-2xl mx-auto text-lg">
+          <p className="text-gray-400 max-w-2xl mx-auto text-base md:text-lg">
             From local rides to grand weddings, we deliver luxury on wheels with uncompromising quality.
           </p>
         </div>
@@ -530,7 +532,7 @@ function ServicesSection() {
               transition={{ duration: 0.6, delay: i * 0.1 }}
             >
               <TiltCard className="h-full">
-                <div className="group relative h-full p-8 rounded-2xl glass hover:border-amber-500/30 transition-all duration-500 overflow-hidden">
+                <div className="group relative h-full p-6 sm:p-8 rounded-2xl glass hover:border-amber-500/30 transition-all duration-500 overflow-hidden">
                   {/* Background glow */}
                   <div className={`absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl ${s.color} opacity-0 group-hover:opacity-10 blur-2xl transition-opacity duration-500`} />
 
@@ -584,13 +586,13 @@ function FleetSection() {
   }, []);
 
   return (
-    <Section id="fleet" className="py-24 md:py-32 overflow-hidden">
+    <Section id="fleet" className="py-16 md:py-24 lg:py-32 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end md:justify-between mb-12">
           <div>
             <span className="text-sm font-semibold text-amber-400 tracking-widest uppercase mb-4 block font-heading">Our Fleet</span>
-            <h2 className="text-4xl md:text-5xl font-bold font-display">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold font-display">
               <span className="text-white">Luxury </span>
               <span className="gradient-text">Vehicle Fleet</span>
             </h2>
@@ -626,7 +628,7 @@ function FleetSection() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: i * 0.1 }}
-            className="shrink-0 w-[340px] sm:w-[380px]"
+            className="shrink-0 w-[280px] sm:w-[340px] md:w-[380px]"
           >
             <TiltCard className="h-full">
               <div className="group relative h-full rounded-2xl glass overflow-hidden hover:border-amber-400/30 transition-all duration-500">
@@ -689,7 +691,7 @@ function AboutSection() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <Section id="about" className="py-24 md:py-32">
+    <Section id="about" className="py-16 md:py-24 lg:py-32">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Left - Visual */}
@@ -745,7 +747,7 @@ function AboutSection() {
           {/* Right - Content */}
           <div>
             <span className="text-sm font-semibold text-amber-400 tracking-widest uppercase mb-4 block font-heading">Our Legacy</span>
-            <h2 className="text-4xl md:text-5xl font-bold font-display mb-6">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold font-display mb-6">
               <span className="text-white">A Decade of </span>
               <span className="gradient-text">Trusted Travel</span>
             </h2>
@@ -778,11 +780,11 @@ function AboutSection() {
 // ─── Gallery Section ─────────────────────────────────────
 function GallerySection() {
   return (
-    <Section id="gallery" className="py-24 md:py-32">
+    <Section id="gallery" className="py-16 md:py-24 lg:py-32">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <span className="text-sm font-semibold text-amber-400 tracking-widest uppercase mb-4 block font-heading">Destinations</span>
-          <h2 className="text-4xl md:text-5xl font-bold font-display mb-4">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold font-display mb-4">
             <span className="text-white">Explore </span>
             <span className="gradient-text">Our Gallery</span>
           </h2>
@@ -838,11 +840,11 @@ function TestimonialsSection() {
   }, []);
 
   return (
-    <Section id="testimonials" className="py-24 md:py-32">
+    <Section id="testimonials" className="py-16 md:py-24 lg:py-32">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <span className="text-sm font-semibold text-amber-400 tracking-widest uppercase mb-4 block font-heading">Testimonials</span>
-          <h2 className="text-4xl md:text-5xl font-bold font-display mb-4">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold font-display mb-4">
             <span className="text-white">What Our </span>
             <span className="gradient-text">Clients Say</span>
           </h2>
@@ -857,7 +859,7 @@ function TestimonialsSection() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.5 }}
-              className="rounded-2xl glass p-8 md:p-12 text-center relative overflow-hidden"
+              className="rounded-2xl glass p-6 md:p-10 lg:p-12 text-center relative overflow-hidden"
             >
               <div className="absolute top-4 left-4 text-6xl text-amber-400/10 font-display">&ldquo;</div>
               <div className="absolute bottom-4 right-4 text-6xl text-amber-400/10 font-display">&rdquo;</div>
@@ -871,7 +873,7 @@ function TestimonialsSection() {
                 ))}
               </div>
 
-              <p className="text-lg md:text-xl text-gray-300 leading-relaxed mb-8 max-w-2xl mx-auto italic">
+              <p className="text-base md:text-lg lg:text-xl text-gray-300 leading-relaxed mb-6 md:mb-8 max-w-2xl mx-auto italic">
                 &ldquo;{testimonials[active].text}&rdquo;
               </p>
 
@@ -942,16 +944,16 @@ function ContactSection() {
     setFormData({ name: '', phone: '', email: '', pickup: '', drop: '', date: '', vehicle: '', message: '' });
   };
 
-  const inputClass = "w-full px-4 py-3 rounded-xl bg-dark-surface/50 border border-dark-border text-white placeholder-gray-500 focus:border-amber-400/50 focus:outline-none focus:ring-1 focus:ring-amber-400/20 transition-all duration-300 text-sm";
+  const inputClass = "w-full px-4 py-3 rounded-xl bg-dark-surface/50 border border-dark-border text-white placeholder-gray-500 focus:border-amber-400/50 focus:outline-none focus:ring-1 focus:ring-amber-400/20 transition-all duration-300 text-base";
 
   return (
-    <Section id="contact" className="py-24 md:py-32">
+    <Section id="contact" className="py-16 md:py-24 lg:py-32">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12">
           {/* Left - Info */}
           <div>
             <span className="text-sm font-semibold text-amber-400 tracking-widest uppercase mb-4 block font-heading">Get in Touch</span>
-            <h2 className="text-4xl md:text-5xl font-bold font-display mb-6">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold font-display mb-6">
               <span className="text-white">Book Your </span>
               <span className="gradient-text">Dream Ride</span>
             </h2>
@@ -1088,7 +1090,7 @@ function FloatingButtons() {
   }, []);
 
   return (
-    <div className="fixed bottom-6 right-6 z-50 flex flex-col gap-3">
+    <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 flex flex-col gap-2 sm:gap-3">
       <AnimatePresence>
         {showTop && (
           <motion.button
@@ -1138,13 +1140,13 @@ function FloatingButtons() {
 // ─── Footer ──────────────────────────────────────────────
 function Footer() {
   return (
-    <footer className="relative pt-24 pb-8 overflow-hidden">
+    <footer className="relative pt-16 md:pt-24 pb-8 overflow-hidden">
       {/* 33% depth gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-dark-bg to-dark-card" />
       <div className="absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t from-amber-900/10 to-transparent" />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12 mb-10 md:mb-16">
           {/* Brand */}
           <div className="lg:col-span-1">
             <div className="flex items-center gap-3 mb-6">
