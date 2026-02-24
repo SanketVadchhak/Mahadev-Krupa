@@ -7,46 +7,6 @@ import {
   Instagram, Facebook, Twitter, Youtube, ArrowUp
 } from 'lucide-react';
 
-// ─── Custom Cursor ────────────────────────────────────────
-function CustomCursor() {
-  const [pos, setPos] = useState({ x: 0, y: 0 });
-  const [dotPos, setDotPos] = useState({ x: 0, y: 0 });
-  const [hovering, setHovering] = useState(false);
-  const [visible, setVisible] = useState(false);
-
-  useEffect(() => {
-    const move = (e: MouseEvent) => {
-      setPos({ x: e.clientX - 10, y: e.clientY - 10 });
-      setDotPos({ x: e.clientX - 3, y: e.clientY - 3 });
-      setVisible(true);
-    };
-    const over = (e: MouseEvent) => {
-      const t = e.target as HTMLElement;
-      if (t.closest('a, button, input, textarea, select, [data-hover]')) setHovering(true);
-    };
-    const out = () => setHovering(false);
-    const leave = () => setVisible(false);
-
-    window.addEventListener('mousemove', move);
-    document.addEventListener('mouseover', over);
-    document.addEventListener('mouseout', out);
-    document.addEventListener('mouseleave', leave);
-    return () => {
-      window.removeEventListener('mousemove', move);
-      document.removeEventListener('mouseover', over);
-      document.removeEventListener('mouseout', out);
-      document.removeEventListener('mouseleave', leave);
-    };
-  }, []);
-
-  if (!visible) return null;
-  return (
-    <>
-      <div className={`custom-cursor ${hovering ? 'cursor-hover' : ''}`} style={{ left: pos.x, top: pos.y }} />
-      <div className="custom-cursor-dot" style={{ left: dotPos.x, top: dotPos.y }} />
-    </>
-  );
-}
 
 // ─── Particle Background ────────────────────────────────
 function ParticleField() {
@@ -1287,8 +1247,7 @@ function Footer() {
 // ─── Main App ────────────────────────────────────────────
 export function App() {
   return (
-    <div className="relative min-h-screen bg-dark-bg text-white noise-overlay">
-      <CustomCursor />
+    <div className="relative min-h-screen bg-dark-bg text-white">
       <ParticleField />
       <Navbar />
       <HeroSection />
