@@ -9,11 +9,14 @@ import { fleet } from '../data/siteData';
 const inputClass =
     'w-full px-4 py-3 rounded-xl bg-dark-surface/50 border border-dark-border text-white placeholder-gray-500 focus:border-amber-400/50 focus:outline-none focus:ring-1 focus:ring-amber-400/20 transition-all duration-300 text-base';
 
+const MAPS_LINK = 'https://maps.app.goo.gl/H3hwoW7uTNTBC4TJA';
+const MAPS_EMBED = 'https://maps.google.com/maps?q=Mahadev+Car+World,+BRTS+Rd,+Surat,+Gujarat+395006,+India&output=embed&hl=en&z=16';
+
 const contactInfo = [
-    { icon: Phone, label: 'Call Us', value: '+91 98765 43210', sub: 'Available 24/7' },
-    { icon: Mail, label: 'Email Us', value: 'info@mahadevkrupa.com', sub: 'Quick response guaranteed' },
-    { icon: MapPin, label: 'Office', value: 'B/H Punjan Plaza, BRTS Rd, opp. Vanmali Junction, Surat, Gujarat 395006', sub: 'Visit us anytime — click map below' },
-    { icon: Clock, label: 'Working Hours', value: '24 Hours / 7 Days', sub: 'Always at your service' },
+    { icon: Phone, label: 'Call Us', value: '+91 98765 43210', sub: 'Available 24/7', href: 'tel:+919876543210' },
+    { icon: Mail, label: 'Email Us', value: 'info@mahadevkrupa.com', sub: 'Quick response guaranteed', href: 'mailto:info@mahadevkrupa.com' },
+    { icon: MapPin, label: 'Office', value: 'Mahadev Car World, B/H Punjan Plaza, BRTS Rd, opp. Vanmali Junction, Surat, Gujarat 395006', sub: 'Tap to open in Maps', href: MAPS_LINK },
+    { icon: Clock, label: 'Working Hours', value: '24 Hours / 7 Days', sub: 'Always at your service', href: null },
 ];
 
 export default function ContactSection() {
@@ -60,12 +63,47 @@ export default function ContactSection() {
                                     </div>
                                     <div>
                                         <p className="text-sm text-gray-500">{item.label}</p>
-                                        <p className="text-white font-semibold">{item.value}</p>
+                                        {item.href ? (
+                                            <a href={item.href} target={item.href.startsWith('http') ? '_blank' : undefined} rel="noopener noreferrer" className="text-white font-semibold hover:text-amber-400 transition-colors leading-snug block">{item.value}</a>
+                                        ) : (
+                                            <p className="text-white font-semibold">{item.value}</p>
+                                        )}
                                         <p className="text-xs text-gray-500">{item.sub}</p>
                                     </div>
                                 </motion.div>
                             ))}
                         </div>
+
+                        {/* Google Maps embed */}
+                        <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.6, delay: 0.4 }}
+                            className="mt-8"
+                        >
+                            <div className="rounded-2xl overflow-hidden border border-dark-border" style={{ height: '240px' }}>
+                                <iframe
+                                    src={MAPS_EMBED}
+                                    width="100%"
+                                    height="100%"
+                                    style={{ border: 0, filter: 'invert(90%) hue-rotate(180deg) brightness(0.85) contrast(0.9)' }}
+                                    allowFullScreen
+                                    loading="lazy"
+                                    referrerPolicy="no-referrer-when-downgrade"
+                                    title="Mahadev Krupa Office Location"
+                                />
+                            </div>
+                            <a
+                                href={MAPS_LINK}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="mt-3 flex items-center justify-center gap-2 w-full py-3 rounded-xl glass hover:border-amber-400/30 text-amber-400 font-semibold text-sm transition-all duration-300"
+                            >
+                                <MapPin size={16} />
+                                Get Directions on Google Maps
+                            </a>
+                        </motion.div>
                     </div>
 
                     {/* Right — form */}
@@ -151,39 +189,6 @@ export default function ContactSection() {
                             </AnimatePresence>
                         </div>
                     </motion.div>
-                </div>
-
-                {/* Google Maps embed */}
-                <div className="mt-12">
-                    <div className="flex items-center gap-3 mb-4">
-                        <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-amber-500 to-yellow-600 flex items-center justify-center shrink-0">
-                            <MapPin size={16} className="text-white" />
-                        </div>
-                        <div>
-                            <p className="text-white font-semibold text-sm">Mahadev Car World</p>
-                            <p className="text-gray-500 text-xs">B/H Punjan Plaza, BRTS Rd, opp. Vanmali Junction, Surat, Gujarat 395006</p>
-                        </div>
-                        <a
-                            href="https://maps.app.goo.gl/H3hwoW7uTNTBC4TJA"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="ml-auto px-4 py-1.5 rounded-full glass text-amber-400 text-xs font-semibold hover:border-amber-400/40 transition-all duration-300 whitespace-nowrap"
-                        >
-                            Open in Maps ↗
-                        </a>
-                    </div>
-                    <div className="rounded-2xl overflow-hidden border border-dark-border h-64 sm:h-80">
-                        <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3719.8!2d72.8850492!3d21.2046777!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be04f619e31500f%3A0x429b620058b2caba!2sMahadev%20Car%20World!5e0!3m2!1sen!2sin!4v1740000000000!5m2!1sen!2sin"
-                            width="100%"
-                            height="100%"
-                            style={{ border: 0, filter: 'invert(90%) hue-rotate(180deg)' }}
-                            allowFullScreen
-                            loading="lazy"
-                            referrerPolicy="no-referrer-when-downgrade"
-                            title="Mahadev Car World Location"
-                        />
-                    </div>
                 </div>
             </div>
         </Section>
