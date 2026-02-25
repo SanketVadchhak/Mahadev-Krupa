@@ -11,8 +11,9 @@ import TestimonialsSection from './sections/TestimonialsSection';
 import ContactSection from './sections/ContactSection';
 import Footer from './sections/Footer';
 import FloatingButtons from './FloatingButtons';
+import QuickBookingPanel from './QuickBookingPanel';
 
-// Thin section divider
+// Thin gradient section divider
 function Divider({ color = 'amber-500/20' }) {
   return (
     <div className="max-w-7xl mx-auto px-8">
@@ -23,7 +24,8 @@ function Divider({ color = 'amber-500/20' }) {
 
 export default function HomePage() {
   return (
-    <div className="relative min-h-screen bg-dark-bg text-white" style={{ overflowX: 'clip' }}>
+    /* pb-24 gives clearance so the fixed QuickBookingPanel doesn't overlap footer content */
+    <div className="relative min-h-screen bg-dark-bg text-white pb-24" style={{ overflowX: 'clip' }}>
       <ParticleField />
       <Navbar />
       <HeroSection />
@@ -41,6 +43,7 @@ export default function HomePage() {
       <ContactSection />
       <Footer />
       <FloatingButtons />
+      <QuickBookingPanel />
     </div>
   );
 }
