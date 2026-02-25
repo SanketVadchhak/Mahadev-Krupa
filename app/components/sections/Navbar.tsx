@@ -27,14 +27,12 @@ export default function Navbar() {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex items-center justify-between h-16 md:h-20">
                     {/* Logo */}
-                    <a href="#hero" className="flex items-center gap-3">
-                        <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-amber-500 via-yellow-500 to-amber-600 flex items-center justify-center animate-gradient-shift">
-                            <span className="text-white font-bold text-lg font-display">M</span>
-                        </div>
-                        <div className="hidden sm:block">
-                            <h1 className="text-sm font-bold gradient-text font-heading tracking-wide">MAHADEV KRUPA</h1>
-                            <p className="text-[10px] text-gray-400 tracking-widest uppercase">Tours & Travels</p>
-                        </div>
+                    <a href="#hero" className="flex items-center gap-2">
+                        <img
+                            src="/assets/brand/logo.png"
+                            alt="Mahadev Krupa Tours & Travels"
+                            className="h-[68px] md:h-[84px] w-auto object-contain"
+                        />
                     </a>
 
                     {/* Desktop links */}

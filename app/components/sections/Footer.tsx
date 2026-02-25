@@ -12,14 +12,12 @@ export default function Footer() {
                 <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12 mb-10 md:mb-16">
                     {/* Brand */}
                     <div className="lg:col-span-1">
-                        <div className="flex items-center gap-3 mb-6">
-                            <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-amber-500 via-yellow-500 to-amber-600 flex items-center justify-center animate-gradient-shift">
-                                <span className="text-white font-bold text-xl font-display">M</span>
-                            </div>
-                            <div>
-                                <h3 className="font-bold gradient-text font-heading">MAHADEV KRUPA</h3>
-                                <p className="text-xs text-gray-500 tracking-widest uppercase">Tours & Travels</p>
-                            </div>
+                        <div className="mb-6">
+                            <img
+                                src="/assets/brand/logo.png"
+                                alt="Mahadev Krupa Tours & Travels"
+                                className="h-[114px] w-auto object-contain"
+                            />
                         </div>
                         <p className="text-gray-400 text-sm leading-relaxed mb-6">
                             Gujarat&apos;s premier luxury travel agency. Premium vehicles &amp; professional service.
