@@ -2,7 +2,14 @@
 
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { ChevronRight } from 'lucide-react';
+import dynamic from 'next/dynamic';
 import LuxuryCarSVG from '../ui/LuxuryCarSVG';
+
+// Dynamically import the 3D viewer — three.js is browser-only (no SSR)
+const UrusViewer = dynamic(() => import('../ui/UrusViewer'), {
+    ssr: false,
+    loading: () => <LuxuryCarSVG />,  // show SVG while GLB loads
+});
 
 export default function HeroSection() {
     const { scrollY } = useScroll();
@@ -106,16 +113,16 @@ export default function HeroSection() {
                         </motion.div>
                     </motion.div>
 
-                    {/* Right — Car SVG */}
+                    {/* Right — 3D Urus */}
                     <motion.div className="mt-8 lg:mt-0">
                         <motion.div
-                            initial={{ opacity: 0, scale: 0.85 }}
+                            initial={{ opacity: 0, scale: 0.9 }}
                             animate={{ opacity: 1, scale: 1 }}
                             transition={{ duration: 1, delay: 0.5, ease: 'easeOut' }}
                         >
-                            <LuxuryCarSVG />
-                            <div className="text-center mt-4">
-                                <p className="text-xs text-gray-500 tracking-widest uppercase">Premium Fleet at Your Service</p>
+                            <UrusViewer />
+                            <div className="text-center mt-2">
+                                <p className="text-xs text-gray-500 tracking-widest uppercase">2023 Lamborghini Urus Performante</p>
                             </div>
                         </motion.div>
                     </motion.div>
