@@ -73,37 +73,6 @@ export default function ContactSection() {
                                 </motion.div>
                             ))}
                         </div>
-
-                        {/* Google Maps embed */}
-                        <motion.div
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.6, delay: 0.4 }}
-                            className="mt-8"
-                        >
-                            <div className="rounded-2xl overflow-hidden border border-dark-border" style={{ height: '240px' }}>
-                                <iframe
-                                    src={MAPS_EMBED}
-                                    width="100%"
-                                    height="100%"
-                                    style={{ border: 0, filter: 'invert(90%) hue-rotate(180deg) brightness(0.85) contrast(0.9)' }}
-                                    allowFullScreen
-                                    loading="lazy"
-                                    referrerPolicy="no-referrer-when-downgrade"
-                                    title="Mahadev Krupa Office Location"
-                                />
-                            </div>
-                            <a
-                                href={MAPS_LINK}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="mt-3 flex items-center justify-center gap-2 w-full py-3 rounded-xl glass hover:border-amber-400/30 text-amber-400 font-semibold text-sm transition-all duration-300"
-                            >
-                                <MapPin size={16} />
-                                Get Directions on Google Maps
-                            </a>
-                        </motion.div>
                     </div>
 
                     {/* Right — form */}
@@ -190,6 +159,37 @@ export default function ContactSection() {
                         </div>
                     </motion.div>
                 </div>
+
+                {/* Full-width Google Maps embed */}
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, delay: 0.3 }}
+                    className="mt-12"
+                >
+                    <div className="rounded-2xl overflow-hidden border border-dark-border" style={{ height: '380px' }}>
+                        <iframe
+                            src={MAPS_EMBED}
+                            width="100%"
+                            height="100%"
+                            style={{ border: 0, filter: 'invert(90%) hue-rotate(180deg) brightness(0.85) contrast(0.9)' }}
+                            allowFullScreen
+                            loading="lazy"
+                            referrerPolicy="no-referrer-when-downgrade"
+                            title="Mahadev Krupa Office Location"
+                        />
+                    </div>
+                    <a
+                        href={MAPS_LINK}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="mt-3 flex items-center justify-center gap-2 w-full py-3 rounded-xl glass hover:border-amber-400/30 text-amber-400 font-semibold text-sm transition-all duration-300"
+                    >
+                        <MapPin size={16} />
+                        Get Directions on Google Maps
+                    </a>
+                </motion.div>
             </div>
         </Section>
     );
