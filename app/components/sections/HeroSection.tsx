@@ -2,14 +2,7 @@
 
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { ChevronRight } from 'lucide-react';
-import dynamic from 'next/dynamic';
 import LuxuryCarSVG from '../ui/LuxuryCarSVG';
-
-// Dynamically import the 3D viewer — three.js is browser-only (no SSR)
-const UrusViewer = dynamic(() => import('../ui/UrusViewer'), {
-    ssr: false,
-    loading: () => <LuxuryCarSVG />,  // show SVG while GLB loads
-});
 
 export default function HeroSection() {
     const { scrollY } = useScroll();
@@ -37,8 +30,7 @@ export default function HeroSection() {
             </div>
 
             <motion.div style={{ opacity }} className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 sm:pt-24">
-                {/* Left text — constrained to ~half width on desktop so car shines through */}
-                <div className="lg:max-w-[48%]">
+                <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
 
                     {/* Left — text content */}
                     <motion.div>
@@ -113,36 +105,38 @@ export default function HeroSection() {
                             ))}
                         </motion.div>
                     </motion.div>
-                </div>{/* ← close left-col div */}
-            </motion.div>{/* ← close max-w wrapper */}
 
-            {/* ── Urus — absolutely positioned, right half, full hero height ── */}
-            {/* Hidden on mobile (shows below on small screens), visible lg+ */}
-            <div className="hidden lg:block absolute right-0 top-0 bottom-0 w-[55%] pointer-events-auto">
-                <motion.div
-                    initial={{ opacity: 0, x: 60 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 1.2, delay: 0.4, ease: 'easeOut' }}
-                    style={{ width: '100%', height: '100%' }}
-                >
-                    <UrusViewer />
-                </motion.div>
-                {/* Gradient mask so left text stays readable */}
-                <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-dark-bg to-transparent pointer-events-none" />
-            </div>
+                    {/* Right — Car SVG */}
+                    <motion.div className="mt-8 lg:mt-0">
+                        <motion.div
+                            initial={{ opacity: 0, scale: 0.85 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            transition={{ duration: 1, delay: 0.5, ease: 'easeOut' }}
+                        >
+                            <LuxuryCarSVG />
+                            <div className="text-center mt-4">
+                                <p className="text-xs text-gray-500 tracking-widest uppercase">Premium Fleet at Your Service</p>
+                            </div>
+                        </motion.div>
+                    </motion.div>
+                </div>
+            </motion.div>
 
-            {/* ── Mobile: car below the text ── */}
-            <div className="lg:hidden w-full mt-4" style={{ height: '55vw', minHeight: 260, maxHeight: 420 }}>
-                <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 1, delay: 0.6 }}
-                    style={{ width: '100%', height: '100%' }}
-                >
-                    <UrusViewer />
-                </motion.div>
-            </div>
+            {/* Scroll indicator */}
+            <motion.div
+                animate={{ y: [0, 10, 0] }}
+                transition={{ duration: 2, repeat: Infinity }}
+                className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
+            >
+                <p className="text-xs text-gray-500 tracking-widest uppercase">Scroll Down</p>
+                <div className="w-6 h-10 rounded-full border-2 border-amber-400/30 flex items-start justify-center p-1">
+                    <motion.div
+                        animate={{ y: [0, 16, 0] }}
+                        transition={{ duration: 2, repeat: Infinity }}
+                        className="w-1.5 h-3 rounded-full bg-gradient-to-b from-amber-400 to-yellow-500"
+                    />
+                </div>
+            </motion.div>
         </section>
     );
 }
-
