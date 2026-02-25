@@ -64,7 +64,7 @@ export default function Footer() {
                     <div>
                         <h4 className="text-white font-bold mb-6 font-heading">Contact Info</h4>
                         <ul className="space-y-4">
-                            <li className="flex items-start gap-3"><MapPin size={16} className="text-amber-400 mt-0.5 shrink-0" /><span className="text-gray-400 text-sm">123 Travel Plaza, CG Road,<br />Ahmedabad, Gujarat 380009</span></li>
+                            <li className="flex items-start gap-3"><MapPin size={16} className="text-amber-400 mt-0.5 shrink-0" /><span className="text-gray-400 text-sm">B/H Punjan Plaza, BRTS Rd,<br />opp. Vanmali Junction, Surat, Gujarat 395006</span></li>
                             <li className="flex items-center gap-3"><Phone size={16} className="text-amber-400 shrink-0" /><span className="text-gray-400 text-sm">+91 98765 43210</span></li>
                             <li className="flex items-center gap-3"><Mail size={16} className="text-amber-400 shrink-0" /><span className="text-gray-400 text-sm">info@mahadevkrupa.com</span></li>
                             <li className="flex items-center gap-3"><Clock size={16} className="text-amber-400 shrink-0" /><span className="text-gray-400 text-sm">24/7 Service Available</span></li>
