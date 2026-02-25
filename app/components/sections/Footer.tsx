@@ -89,14 +89,7 @@ export default function Footer() {
                         <a href="#" className="text-gray-500 hover:text-gray-300 text-sm transition-colors">Terms of Service</a>
                     </div>
                 </div>
-                {/* Developer credit */}
-                <div className="h-px bg-gradient-to-r from-transparent via-white/5 to-transparent mb-5" />
-                <p className="text-center text-[11px] text-gray-700 tracking-widest uppercase">
-                    Crafted by{' '}
-                    <span className="text-amber-600/70 font-semibold">Sanket Vadchhak</span>
-                    {' '}·{' '}
-                    <span className="text-gray-600">Tested by Aaditya Patil</span>
-                </p>
+
             </div>
         </footer>
     );

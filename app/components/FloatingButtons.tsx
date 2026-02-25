@@ -38,7 +38,7 @@ export default function FloatingButtons() {
             </a>
 
             <a
-                href="https://wa.me/919876543210"
+                href="https://wa.me/919714555226"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-gradient-to-br from-amber-600 to-yellow-700 flex items-center justify-center shadow-lg shadow-amber-600/30 hover:shadow-xl hover:shadow-amber-600/40 transition-all duration-300 active:scale-95"

@@ -6,6 +6,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Phone, MapPin, Clock, Mail, Send } from 'lucide-react';
 import Section from '../ui/Section';
 import { fleet } from '../data/siteData';
+import { supabase } from '@/app/lib/supabase';
 
 const inputClass =
     'w-full px-4 py-3 rounded-xl bg-dark-surface/50 border border-dark-border text-white placeholder-gray-500 focus:border-amber-400/50 focus:outline-none focus:ring-1 focus:ring-amber-400/20 transition-all duration-300 text-base';
@@ -34,8 +35,37 @@ export default function ContactSection() {
         return unsub;
     }, []);
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
+
+        // Save to Supabase (non-blocking — UI still succeeds even on error)
+        const { error } = await supabase.from('inquiries').insert({
+            name: formData.name,
+            phone: formData.phone,
+            email: formData.email || null,
+            pickup: formData.pickup || null,
+            drop_location: formData.drop || null,
+            date: formData.date || null,
+            vehicle: formData.vehicle || null,
+            message: formData.message || null,
+            source: 'contact_form',
+        });
+
+        if (error) console.error('Supabase insert error:', error);
+
+        // Open WhatsApp with pre-filled message
+        const waText = encodeURIComponent(
+            `Hi! I'm ${formData.name} and I came across Mahadev Krupa Tours & Travels online. I'm interested in booking a trip` +
+            (formData.vehicle ? ` — specifically looking at the ${formData.vehicle}` : '') +
+            (formData.pickup && formData.drop ? ` from ${formData.pickup} to ${formData.drop}` : formData.pickup ? ` from ${formData.pickup}` : '') +
+            (formData.date ? ` on ${formData.date}` : '') +
+            `. My contact number is ${formData.phone}` +
+            (formData.email ? ` and email is ${formData.email}` : '') +
+            (formData.message ? `. Also wanted to mention — ${formData.message}` : '') +
+            `. Could you please let me know about availability and pricing? Would really appreciate a quick reply, thanks! 🙏`
+        );
+        window.open(`https://wa.me/919714555226?text=${waText}`, '_blank');
+
         setSubmitted(true);
         setTimeout(() => setSubmitted(false), 4000);
         setFormData({ name: '', phone: '', email: '', pickup: '', drop: '', date: '', vehicle: '', message: '' });
@@ -123,8 +153,8 @@ export default function ContactSection() {
                                         <div className="grid sm:grid-cols-2 gap-4">
                                             <input type="text" placeholder="Your Name *" required value={formData.name}
                                                 onChange={e => setFormData({ ...formData, name: e.target.value })} className={inputClass} />
-                                            <input type="tel" placeholder="Phone Number *" required value={formData.phone}
-                                                onChange={e => setFormData({ ...formData, phone: e.target.value })} className={inputClass} />
+                                            <input type="tel" inputMode="numeric" placeholder="Phone Number *" required value={formData.phone}
+                                                onChange={e => setFormData(p => ({ ...p, phone: e.target.value.replace(/\D/g, '') }))} className={inputClass} />
                                         </div>
 
                                         <input type="email" placeholder="Email Address" value={formData.email}

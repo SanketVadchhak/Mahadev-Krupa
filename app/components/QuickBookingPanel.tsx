@@ -2,16 +2,21 @@
 
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronUp, ChevronDown, Zap, Send, CalendarDays, Users, Car } from 'lucide-react';
+import { ChevronUp, ChevronDown, Zap, Send, CalendarDays, Users, Car, Phone } from 'lucide-react';
 import { fleet } from './data/siteData';
+import { supabase } from '@/app/lib/supabase';
 
 interface BookingState {
     date: string;
     passengers: number;
     vehicle: string;
+    phone: string;
 }
 
 const today = () => new Date().toISOString().split('T')[0];
+
+const fieldClass =
+    'w-full px-4 py-3 rounded-xl bg-white/5 backdrop-blur-sm border border-white/10 text-white text-sm focus:border-amber-400/50 focus:outline-none focus:ring-1 focus:ring-amber-400/20 hover:border-amber-400/20 transition-all duration-300';
 
 export default function QuickBookingPanel() {
     const [isOpen, setIsOpen] = useState(false);
@@ -20,6 +25,7 @@ export default function QuickBookingPanel() {
         date: today(),
         passengers: 2,
         vehicle: '',
+        phone: '',
     });
 
     const selectedVehicle = fleet.find(f => f.name === booking.vehicle);
@@ -30,8 +36,29 @@ export default function QuickBookingPanel() {
         booking.date,
     ].join(' · ');
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
+
+        // Save to Supabase
+        const { error } = await supabase.from('inquiries').insert({
+            phone: booking.phone,
+            name: booking.phone,
+            vehicle: booking.vehicle || null,
+            date: booking.date,
+            message: `Quick Booking — ${booking.passengers} passengers`,
+            source: 'quick_booking',
+        });
+        if (error) console.error('Supabase quick-booking error:', error);
+
+        // Open WhatsApp with pre-filled message
+        const waText = encodeURIComponent(
+            `Hi! I'd like to book a vehicle through Mahadev Krupa Tours & Travels` +
+            (booking.vehicle ? ` — I'm interested in the ${booking.vehicle}` : ', open to vehicle suggestions') +
+            ` for ${booking.passengers} passenger${booking.passengers > 1 ? 's' : ''}` +
+            ` on ${booking.date}. My number is ${booking.phone}. Can you please check availability and share the pricing? Thanks! 😊`
+        );
+        window.open(`https://wa.me/919714555226?text=${waText}`, '_blank');
+
         setSubmitted(true);
         setTimeout(() => {
             setSubmitted(false);
@@ -39,11 +66,15 @@ export default function QuickBookingPanel() {
         }, 3000);
     };
 
-    const adjust = (delta: number) =>
-        setBooking(b => ({ ...b, passengers: Math.max(1, Math.min(20, b.passengers + delta)) }));
+    const adjustPassengers = (delta: number) =>
+        setBooking(b => ({ ...b, passengers: Math.max(1, Math.min(50, b.passengers + delta)) }));
+
+    const handlePassengerKey = (e: React.KeyboardEvent<HTMLInputElement>) => {
+        if (e.key === 'ArrowUp') { e.preventDefault(); adjustPassengers(1); }
+        if (e.key === 'ArrowDown') { e.preventDefault(); adjustPassengers(-1); }
+    };
 
     return (
-        /* Fixed to bottom, full width on mobile, centered pill on desktop */
         <div className="fixed bottom-0 left-0 right-0 z-30 flex justify-center px-0 sm:px-4 sm:pb-5 pointer-events-none">
             <motion.div
                 layout
@@ -51,12 +82,11 @@ export default function QuickBookingPanel() {
                 className="pointer-events-auto w-full sm:max-w-3xl lg:max-w-4xl"
                 style={{ willChange: 'auto' }}
             >
-                {/* Panel — solid on mobile, subtle glass on desktop */}
                 <div className="relative bg-[#111]/95 sm:bg-white/8 backdrop-blur-xl border-t border-x border-amber-400/25 sm:rounded-2xl overflow-hidden shadow-xl shadow-black/50">
                     {/* Amber top glow line */}
                     <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-amber-400/70 to-transparent" />
 
-                    {/* ── Collapsed header (always visible) ─────────── */}
+                    {/* ── Collapsed header ── */}
                     <button
                         onClick={() => setIsOpen(o => !o)}
                         className="w-full flex items-center justify-between px-5 sm:px-8 py-4 sm:py-5 group"
@@ -74,7 +104,6 @@ export default function QuickBookingPanel() {
                                 </p>
                             </div>
                         </div>
-
                         <div className="flex items-center gap-2 shrink-0 ml-4">
                             <span className="hidden sm:block text-[10px] tracking-widest text-gray-400 uppercase font-medium">
                                 {isOpen ? 'Tap to Close' : 'Tap to Open'}
@@ -87,7 +116,7 @@ export default function QuickBookingPanel() {
                         </div>
                     </button>
 
-                    {/* ── Expanded form ─────────────────────────────── */}
+                    {/* ── Expanded form ── */}
                     <AnimatePresence initial={false}>
                         {isOpen && (
                             <motion.div
@@ -99,8 +128,6 @@ export default function QuickBookingPanel() {
                                 style={{ overflow: 'hidden' }}
                             >
                                 <div className="px-5 sm:px-8 pb-6 sm:pb-8">
-                                    {/* Divider */}
-                                    {/* Divider */}
                                     <div className="h-px bg-gradient-to-r from-transparent via-amber-400/20 to-transparent mb-5" />
 
                                     <AnimatePresence mode="wait">
@@ -128,8 +155,8 @@ export default function QuickBookingPanel() {
                                                 exit={{ opacity: 0 }}
                                                 onSubmit={handleSubmit}
                                             >
-                                                {/* Row: Date · Passengers · Vehicle */}
-                                                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-4">
+                                                {/* Row 1: Date · Passengers · Vehicle */}
+                                                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-3">
 
                                                     {/* Date */}
                                                     <div className="space-y-1.5">
@@ -142,11 +169,11 @@ export default function QuickBookingPanel() {
                                                             value={booking.date}
                                                             min={today()}
                                                             onChange={e => setBooking(b => ({ ...b, date: e.target.value }))}
-                                                            className="w-full px-4 py-3 rounded-xl bg-white/5 backdrop-blur-sm border border-white/10 text-white text-sm focus:border-amber-400/50 focus:outline-none focus:ring-1 focus:ring-amber-400/20 hover:border-amber-400/20 transition-all duration-300"
+                                                            className={fieldClass}
                                                         />
                                                     </div>
 
-                                                    {/* Passengers */}
+                                                    {/* Passengers — keyboard + buttons */}
                                                     <div className="space-y-1.5">
                                                         <label className="flex items-center gap-1.5 text-[10px] font-semibold text-gray-500 tracking-widest uppercase">
                                                             <Users size={11} className="text-amber-400" /> Passengers
@@ -154,15 +181,24 @@ export default function QuickBookingPanel() {
                                                         <div className="flex items-center rounded-xl bg-white/5 backdrop-blur-sm border border-white/10 overflow-hidden hover:border-amber-400/20 transition-all duration-300">
                                                             <button
                                                                 type="button"
-                                                                onClick={() => adjust(-1)}
+                                                                onClick={() => adjustPassengers(-1)}
                                                                 className="px-4 py-3 text-amber-400 hover:bg-amber-500/10 transition-colors text-lg font-bold leading-none"
                                                             >−</button>
-                                                            <span className="flex-1 text-center text-white font-semibold text-sm">
-                                                                {booking.passengers}
-                                                            </span>
+                                                            <input
+                                                                type="number"
+                                                                min={1}
+                                                                max={50}
+                                                                value={booking.passengers}
+                                                                onChange={e => {
+                                                                    const v = parseInt(e.target.value);
+                                                                    if (!isNaN(v)) setBooking(b => ({ ...b, passengers: Math.max(1, Math.min(50, v)) }));
+                                                                }}
+                                                                onKeyDown={handlePassengerKey}
+                                                                className="flex-1 bg-transparent text-center text-white font-semibold text-sm focus:outline-none py-3 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
+                                                            />
                                                             <button
                                                                 type="button"
-                                                                onClick={() => adjust(1)}
+                                                                onClick={() => adjustPassengers(1)}
                                                                 className="px-4 py-3 text-amber-400 hover:bg-amber-500/10 transition-colors text-lg font-bold leading-none"
                                                             >+</button>
                                                         </div>
@@ -176,14 +212,30 @@ export default function QuickBookingPanel() {
                                                         <select
                                                             value={booking.vehicle}
                                                             onChange={e => setBooking(b => ({ ...b, vehicle: e.target.value }))}
-                                                            className="w-full px-4 py-3 rounded-xl bg-white/5 backdrop-blur-sm border border-white/10 text-white text-sm focus:border-amber-400/50 focus:outline-none focus:ring-1 focus:ring-amber-400/20 hover:border-amber-400/20 transition-all duration-300 appearance-none"
+                                                            className={`${fieldClass} appearance-none`}
                                                         >
                                                             <option value="">Any Vehicle</option>
-                                                            {fleet.map(c => (
+                                                            {fleet.filter(c => !c.isInquiry).map(c => (
                                                                 <option key={c.name} value={c.name}>{c.name}</option>
                                                             ))}
                                                         </select>
                                                     </div>
+                                                </div>
+
+                                                {/* Row 2: Phone number — full width */}
+                                                <div className="space-y-1.5 mb-4">
+                                                    <label className="flex items-center gap-1.5 text-[10px] font-semibold text-gray-500 tracking-widest uppercase">
+                                                        <Phone size={11} className="text-amber-400" /> Phone Number
+                                                    </label>
+                                                    <input
+                                                        type="tel"
+                                                        inputMode="numeric"
+                                                        required
+                                                        placeholder="Your mobile number *"
+                                                        value={booking.phone}
+                                                        onChange={e => setBooking(b => ({ ...b, phone: e.target.value.replace(/\D/g, '') }))}
+                                                        className={`${fieldClass} placeholder-gray-400`}
+                                                    />
                                                 </div>
 
                                                 {/* Submit */}

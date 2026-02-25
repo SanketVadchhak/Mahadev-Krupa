@@ -39,6 +39,11 @@ export const metadata: Metadata = {
     authors: [{ name: 'Mahadev Krupa Tours & Travels' }],
     creator: 'Mahadev Krupa Tours & Travels',
     publisher: 'Mahadev Krupa Tours & Travels',
+    icons: {
+        icon: '/assets/brand/og-logo.png',
+        shortcut: '/assets/brand/og-logo.png',
+        apple: '/assets/brand/og-logo.png',
+    },
     openGraph: {
         title: 'Mahadev Krupa Tours & Travels | Premium Luxury Travel in Gujarat',
         description:
@@ -47,6 +52,14 @@ export const metadata: Metadata = {
         siteName: 'Mahadev Krupa Tours & Travels',
         locale: 'en_IN',
         type: 'website',
+        images: [
+            {
+                url: '/assets/brand/og-logo.png',
+                width: 512,
+                height: 512,
+                alt: 'Mahadev Krupa Tours & Travels',
+            },
+        ],
     },
     twitter: {
         card: 'summary_large_image',
@@ -54,6 +67,7 @@ export const metadata: Metadata = {
         description:
             "Gujarat's premier luxury travel agency. Book premium rides, tours, wedding cars and self-drive vehicles.",
         creator: '@mahadevkrupa',
+        images: ['/assets/brand/og-logo.png'],
     },
     robots: {
         index: true,
@@ -71,6 +85,7 @@ export const metadata: Metadata = {
     },
     category: 'travel',
 };
+
 
 export default function RootLayout({
     children,

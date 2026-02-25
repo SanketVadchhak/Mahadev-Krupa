@@ -12,6 +12,7 @@ import { fleet } from '../data/siteData';
 import type { FleetCar } from '../data/siteData';
 import VehicleModal from '../VehicleModal';
 import { bookingStore } from '../data/bookingStore';
+import { supabase } from '@/app/lib/supabase';
 
 // ─── Icon map for highlight tags ─────────────────────────────
 const HIGHLIGHT_ICONS: Record<string, React.ElementType> = {
@@ -53,12 +54,27 @@ function InquiryCard() {
     const [form, setForm] = useState({ name: '', phone: '', vehicle: '', message: '' });
     const [sent, setSent] = useState(false);
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
+
+        // Save to Supabase
+        const { error } = await supabase.from('inquiries').insert({
+            name: form.name,
+            phone: form.phone,
+            vehicle: form.vehicle || null,
+            message: form.message || null,
+            source: 'fleet_inquiry',
+        });
+        if (error) console.error('Supabase insert error:', error);
+
+        // Also send via WhatsApp
         const text = encodeURIComponent(
-            `🚗 *Vehicle Inquiry — Mahadev Krupa*\n\n*Name:* ${form.name}\n*Phone:* ${form.phone}\n*Vehicle Interest:* ${form.vehicle || 'Not specified'}\n*Message:* ${form.message}`
+            `Hi! I'm ${form.name} and I found Mahadev Krupa Tours & Travels online. I'm looking for a vehicle for an upcoming trip` +
+            (form.vehicle ? ` — specifically interested in the ${form.vehicle}` : '') +
+            (form.message ? `. ${form.message}` : '') +
+            `. Best way to reach me is ${form.phone}. Could you let me know what's available and the pricing? Thanks a lot! 🙏`
         );
-        window.open(`https://wa.me/+919898989898?text=${text}`, '_blank');
+        window.open(`https://wa.me/919714555226?text=${text}`, '_blank');
         setSent(true);
         setTimeout(() => setSent(false), 4000);
     };
@@ -103,8 +119,8 @@ function InquiryCard() {
                         style={inputStyle}
                         onFocus={e => (e.currentTarget.style.borderColor = 'rgba(212,168,67,0.6)')}
                         onBlur={e => (e.currentTarget.style.borderColor = 'rgba(212,168,67,0.2)')} />
-                    <input required placeholder="Phone Number *" type="tel" value={form.phone}
-                        onChange={e => setForm(p => ({ ...p, phone: e.target.value }))}
+                    <input required placeholder="Phone Number *" type="tel" inputMode="numeric" value={form.phone}
+                        onChange={e => setForm(p => ({ ...p, phone: e.target.value.replace(/\D/g, '') }))}
                         style={inputStyle}
                         onFocus={e => (e.currentTarget.style.borderColor = 'rgba(212,168,67,0.6)')}
                         onBlur={e => (e.currentTarget.style.borderColor = 'rgba(212,168,67,0.2)')} />
