@@ -5,7 +5,7 @@ import { services } from '../data/siteData';
 
 export default function Footer() {
     return (
-        <footer className="relative pt-16 md:pt-24 pb-8 overflow-hidden">
+        <footer className="relative pt-16 md:pt-24 pb-28 overflow-hidden">
             <div className="absolute inset-0 bg-gradient-to-b from-transparent via-dark-bg to-dark-card" />
             <div className="absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t from-amber-900/10 to-transparent" />
             <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

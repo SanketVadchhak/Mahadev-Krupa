@@ -25,7 +25,7 @@ function Divider({ color = 'amber-500/20' }) {
 export default function HomePage() {
   return (
     /* pb-24 gives clearance so the fixed QuickBookingPanel doesn't overlap footer content */
-    <div className="relative min-h-screen bg-dark-bg text-white pb-24" style={{ overflowX: 'clip' }}>
+    <div className="relative min-h-screen bg-dark-bg text-white" style={{ overflowX: 'clip' }}>
       <ParticleField />
       <Navbar />
       <HeroSection />
