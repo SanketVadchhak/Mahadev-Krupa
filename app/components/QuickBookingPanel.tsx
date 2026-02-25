@@ -44,17 +44,17 @@ export default function QuickBookingPanel() {
 
     return (
         /* Fixed to bottom, full width on mobile, centered pill on desktop */
-        <div className="fixed bottom-0 left-0 right-0 z-40 flex justify-center px-0 sm:px-4 sm:pb-4 pointer-events-none">
+        <div className="fixed bottom-0 left-0 right-0 z-30 flex justify-center px-0 sm:px-4 sm:pb-5 pointer-events-none">
             <motion.div
                 layout
                 transition={{ type: 'spring', stiffness: 400, damping: 35 }}
                 className="pointer-events-auto w-full sm:max-w-3xl lg:max-w-4xl"
                 style={{ willChange: 'auto' }}
             >
-                {/* Panel container */}
-                <div className="relative bg-[#0f0f0f]/95 backdrop-blur-2xl border-t border-x border-dark-border sm:rounded-2xl overflow-hidden shadow-2xl shadow-black/60">
-                    {/* Subtle gold top line */}
-                    <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-amber-500/60 to-transparent" />
+                {/* Panel — solid on mobile, subtle glass on desktop */}
+                <div className="relative bg-[#111]/95 sm:bg-white/8 backdrop-blur-xl border-t border-x border-amber-400/25 sm:rounded-2xl overflow-hidden shadow-xl shadow-black/50">
+                    {/* Amber top glow line */}
+                    <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-amber-400/70 to-transparent" />
 
                     {/* ── Collapsed header (always visible) ─────────── */}
                     <button
@@ -100,7 +100,8 @@ export default function QuickBookingPanel() {
                             >
                                 <div className="px-5 sm:px-8 pb-6 sm:pb-8">
                                     {/* Divider */}
-                                    <div className="h-px bg-gradient-to-r from-transparent via-dark-border to-transparent mb-5" />
+                                    {/* Divider */}
+                                    <div className="h-px bg-gradient-to-r from-transparent via-amber-400/20 to-transparent mb-5" />
 
                                     <AnimatePresence mode="wait">
                                         {submitted ? (
@@ -141,7 +142,7 @@ export default function QuickBookingPanel() {
                                                             value={booking.date}
                                                             min={today()}
                                                             onChange={e => setBooking(b => ({ ...b, date: e.target.value }))}
-                                                            className="w-full px-4 py-3 rounded-xl bg-dark-surface/60 border border-dark-border text-white text-sm focus:border-amber-400/50 focus:outline-none focus:ring-1 focus:ring-amber-400/20 transition-all duration-300"
+                                                            className="w-full px-4 py-3 rounded-xl bg-white/5 backdrop-blur-sm border border-white/10 text-white text-sm focus:border-amber-400/50 focus:outline-none focus:ring-1 focus:ring-amber-400/20 hover:border-amber-400/20 transition-all duration-300"
                                                         />
                                                     </div>
 
@@ -150,7 +151,7 @@ export default function QuickBookingPanel() {
                                                         <label className="flex items-center gap-1.5 text-[10px] font-semibold text-gray-500 tracking-widest uppercase">
                                                             <Users size={11} className="text-amber-400" /> Passengers
                                                         </label>
-                                                        <div className="flex items-center rounded-xl bg-dark-surface/60 border border-dark-border overflow-hidden">
+                                                        <div className="flex items-center rounded-xl bg-white/5 backdrop-blur-sm border border-white/10 overflow-hidden hover:border-amber-400/20 transition-all duration-300">
                                                             <button
                                                                 type="button"
                                                                 onClick={() => adjust(-1)}
@@ -175,7 +176,7 @@ export default function QuickBookingPanel() {
                                                         <select
                                                             value={booking.vehicle}
                                                             onChange={e => setBooking(b => ({ ...b, vehicle: e.target.value }))}
-                                                            className="w-full px-4 py-3 rounded-xl bg-dark-surface/60 border border-dark-border text-white text-sm focus:border-amber-400/50 focus:outline-none focus:ring-1 focus:ring-amber-400/20 transition-all duration-300 appearance-none"
+                                                            className="w-full px-4 py-3 rounded-xl bg-white/5 backdrop-blur-sm border border-white/10 text-white text-sm focus:border-amber-400/50 focus:outline-none focus:ring-1 focus:ring-amber-400/20 hover:border-amber-400/20 transition-all duration-300 appearance-none"
                                                         >
                                                             <option value="">Any Vehicle</option>
                                                             {fleet.map(c => (
