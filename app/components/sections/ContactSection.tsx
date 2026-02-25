@@ -164,7 +164,7 @@ export default function ContactSection() {
                             <p className="text-gray-500 text-xs">B/H Punjan Plaza, BRTS Rd, opp. Vanmali Junction, Surat, Gujarat 395006</p>
                         </div>
                         <a
-                            href="https://www.google.com/maps/place/Mahadev+Car+World/@21.2046777,72.8876276,16z"
+                            href="https://maps.app.goo.gl/H3hwoW7uTNTBC4TJA"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="ml-auto px-4 py-1.5 rounded-full glass text-amber-400 text-xs font-semibold hover:border-amber-400/40 transition-all duration-300 whitespace-nowrap"
@@ -174,7 +174,7 @@ export default function ContactSection() {
                     </div>
                     <div className="rounded-2xl overflow-hidden border border-dark-border h-64 sm:h-80">
                         <iframe
-                            src="https://maps.google.com/maps?q=21.2046777,72.8876276&z=16&output=embed"
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3719.8!2d72.8850492!3d21.2046777!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be04f619e31500f%3A0x429b620058b2caba!2sMahadev%20Car%20World!5e0!3m2!1sen!2sin!4v1740000000000!5m2!1sen!2sin"
                             width="100%"
                             height="100%"
                             style={{ border: 0, filter: 'invert(90%) hue-rotate(180deg)' }}
