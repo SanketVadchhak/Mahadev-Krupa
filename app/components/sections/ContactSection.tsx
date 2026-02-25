@@ -1,6 +1,7 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { bookingStore } from '../data/bookingStore';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Phone, MapPin, Clock, Mail, Send } from 'lucide-react';
 import Section from '../ui/Section';
@@ -24,6 +25,14 @@ export default function ContactSection() {
         name: '', phone: '', email: '', pickup: '', drop: '', date: '', vehicle: '', message: '',
     });
     const [submitted, setSubmitted] = useState(false);
+
+    // Listen for vehicle pre-selection from fleet cards
+    useEffect(() => {
+        const unsub = bookingStore.subscribe(vehicleName => {
+            setFormData(prev => ({ ...prev, vehicle: vehicleName }));
+        });
+        return unsub;
+    }, []);
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
@@ -136,7 +145,7 @@ export default function ContactSection() {
                                                 className={inputClass}
                                             >
                                                 <option value="">Select Vehicle</option>
-                                                {fleet.map(c => <option key={c.name} value={c.name}>{c.name}</option>)}
+                                                {fleet.filter(c => !c.isInquiry).map(c => <option key={c.name} value={c.name}>{c.name}</option>)}
                                             </select>
                                         </div>
 
