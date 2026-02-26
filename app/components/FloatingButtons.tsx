@@ -31,7 +31,7 @@ export default function FloatingButtons() {
 
             {/* Plain <a> tags — no framer-motion whileHover to prevent iOS touch jitter */}
             <a
-                href="tel:+919876543210"
+                href="tel:+919714555226"
                 className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-gradient-to-br from-amber-500 to-yellow-600 flex items-center justify-center shadow-lg shadow-amber-500/30 hover:shadow-xl hover:shadow-amber-500/40 transition-all duration-300 active:scale-95"
             >
                 <Phone size={20} className="text-white" />

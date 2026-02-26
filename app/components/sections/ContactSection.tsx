@@ -15,8 +15,8 @@ const MAPS_LINK = 'https://maps.app.goo.gl/H3hwoW7uTNTBC4TJA';
 const MAPS_EMBED = 'https://maps.google.com/maps?q=Mahadev+Car+World,+BRTS+Rd,+Surat,+Gujarat+395006,+India&output=embed&hl=en&z=16';
 
 const contactInfo = [
-    { icon: Phone, label: 'Call Us', value: '+91 98765 43210', sub: 'Available 24/7', href: 'tel:+919876543210' },
-    { icon: Mail, label: 'Email Us', value: 'info@mahadevkrupa.com', sub: 'Quick response guaranteed', href: 'mailto:info@mahadevkrupa.com' },
+    { icon: Phone, label: 'Call Us', value: '+91 97145 55226', sub: 'Available 24/7', href: 'tel:+919714555226' },
+    { icon: Mail, label: 'Email Us', value: 'mahadevkrupatourstravels@gmail.com', sub: 'Quick response guaranteed', href: 'mailto:mahadevkrupatourstravels@gmail.com' },
     { icon: MapPin, label: 'Office', value: 'Mahadev Car World, B/H Punjan Plaza, BRTS Rd, opp. Vanmali Junction, Surat, Gujarat 395006', sub: 'Tap to open in Maps', href: MAPS_LINK },
     { icon: Clock, label: 'Working Hours', value: '24 Hours / 7 Days', sub: 'Always at your service', href: null },
 ];
@@ -79,11 +79,11 @@ export default function ContactSection() {
                     {/* Left — contact info */}
                     <div>
                         <span className="text-sm font-semibold text-amber-400 tracking-widest uppercase mb-4 block font-heading">Get in Touch</span>
-                        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold font-display mb-6">
+                        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold font-display mb-4">
                             <span className="text-white">Book Your </span>
                             <span className="gradient-text">Dream Ride</span>
                         </h2>
-                        <p className="text-gray-400 mb-8 leading-relaxed">
+                        <p className="text-gray-400 mb-8 leading-relaxed text-base md:text-lg">
                             Fill in the form and our team will get back to you within 30 minutes with a personalized quote. Or reach us directly through the contact details below.
                         </p>
 

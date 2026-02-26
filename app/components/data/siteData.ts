@@ -230,24 +230,180 @@ export const fleet: FleetCar[] = [
     },
 ];
 
-// ─── Gallery ─────────────────────────────────────────────────
-export interface GalleryItem {
-    title: string;
-    h: string;
-    gradient: string;
+// ─── Destinations ─────────────────────────────────────────────
+export interface Destination {
+    id: string;
+    name: string;
+    tagline: string;
+    coverImage: string;
+    images: string[];
+    about: string;
+    highlights: string[];
+    bestTime: string;
+    distance: string;
 }
 
-export const gallery: GalleryItem[] = [
-    { title: 'Rann of Kutch', h: 'h-64', gradient: 'from-amber-900/60 to-yellow-700/40' },
-    { title: 'Gir Forest Safari', h: 'h-80', gradient: 'from-yellow-900/60 to-amber-700/40' },
-    { title: 'Somnath Temple', h: 'h-72', gradient: 'from-stone-800/60 to-amber-900/40' },
-    { title: 'Dwarka', h: 'h-56', gradient: 'from-amber-800/60 to-yellow-600/40' },
-    { title: 'Statue of Unity', h: 'h-96', gradient: 'from-neutral-800/60 to-stone-700/40' },
-    { title: 'Saputara Hills', h: 'h-64', gradient: 'from-yellow-900/60 to-amber-800/40' },
-    { title: 'Ahmedabad Heritage', h: 'h-80', gradient: 'from-amber-900/60 to-stone-800/40' },
-    { title: 'Royal Wedding Fleet', h: 'h-72', gradient: 'from-yellow-800/60 to-amber-600/40' },
-    { title: 'Mandvi Beach', h: 'h-60', gradient: 'from-stone-900/60 to-amber-700/40' },
+export const destinations: Destination[] = [
+    {
+        id: 'udaipur',
+        name: 'Udaipur',
+        tagline: 'The City of Lakes',
+        coverImage: 'https://ik.imagekit.io/dvk8nd0jx/Destination/Udaipur/31895c9b08f7689619bf0cb856e0b98d.webp?updatedAt=1772131413527',
+        images: [
+            'https://ik.imagekit.io/dvk8nd0jx/Destination/Udaipur/31895c9b08f7689619bf0cb856e0b98d.webp?updatedAt=1772131413527',
+            'https://ik.imagekit.io/dvk8nd0jx/Destination/Udaipur/5795e8e340bcaa3e26ad84930ffb5637.webp?updatedAt=1772131413510',
+            'https://ik.imagekit.io/dvk8nd0jx/Destination/Udaipur/28495e273d4607d77d29ce9f295bab45.webp?updatedAt=1772131413502',
+            'https://ik.imagekit.io/dvk8nd0jx/Destination/Udaipur/00b40acaa03fbf8f437741b2bd874f5f.webp?updatedAt=1772131413476',
+            'https://ik.imagekit.io/dvk8nd0jx/Destination/Udaipur/9c4f2c33ff9079e7abafca99a53668ae.webp?updatedAt=1772131413135',
+            'https://ik.imagekit.io/dvk8nd0jx/Destination/Udaipur/f22071f6b676c7a498bb02e0cb780d6a.webp?updatedAt=1772131413577',
+        ],
+        about: 'Udaipur, the "Venice of the East", is Rajasthan\'s crown jewel — a romantic city built around shimmering lakes, palaces of white marble, and havelis draped in bougainvillea. Founded in 1559 by Maharana Udai Singh II, every corner tells a story of Rajput grandeur. The iconic Lake Pichola reflects the majestic City Palace at dusk, creating one of India\'s most photographed skylines.',
+        highlights: ['City Palace & Museum', 'Lake Pichola Boat Ride', 'Jag Mandir Island', 'Sajjangarh (Monsoon Palace)', 'Jagdish Temple', 'Saheliyon Ki Bari', 'Fateh Sagar Lake', 'Vintage Car Museum'],
+        bestTime: 'Sep – Mar',
+        distance: '~410 km',
+    },
+    {
+        id: 'dwarka-somnath',
+        name: 'Dwarka × Somnath',
+        tagline: 'Sacred Shores of Gujarat',
+        coverImage: 'https://ik.imagekit.io/dvk8nd0jx/Destination/Dwarka&Somnath/7c15cd9492fb92d3c1765c68dc0eca7a.webp?updatedAt=1772131413501',
+        images: [
+            'https://ik.imagekit.io/dvk8nd0jx/Destination/Dwarka&Somnath/download%20(1).webp?updatedAt=1772131414105',
+            'https://ik.imagekit.io/dvk8nd0jx/Destination/Dwarka&Somnath/download.webp?updatedAt=1772131413553',
+            'https://ik.imagekit.io/dvk8nd0jx/Destination/Dwarka&Somnath/7c15cd9492fb92d3c1765c68dc0eca7a.webp?updatedAt=1772131413501',
+            'https://ik.imagekit.io/dvk8nd0jx/Destination/Dwarka&Somnath/aea39e042d95cbc9beb92bc689ca2c72.webp?updatedAt=1772131413516',
+            'https://ik.imagekit.io/dvk8nd0jx/Destination/Dwarka&Somnath/10e2451035b9e2b2aa05bda6a0fb9ccb.webp?updatedAt=1772131413416',
+            'https://ik.imagekit.io/dvk8nd0jx/Destination/Dwarka&Somnath/6e200586e8499509b125daa9749a84ed.webp?updatedAt=1772131413110',
+            'https://ik.imagekit.io/dvk8nd0jx/Destination/Dwarka&Somnath/a557b4f6c159fd3f90350eca7ab75688.webp?updatedAt=1772131412978',
+            'https://ik.imagekit.io/dvk8nd0jx/Destination/Dwarka&Somnath/b3895df747f099279a3e46fd14f33465.webp?updatedAt=1772131412975',
+        ],
+        about: 'Dwarka and Somnath are two of Hinduism\'s most sacred pilgrimage sites, both perched on Gujarat\'s Arabian Sea coastline. Dwarka — believed to be Lord Krishna\'s ancient kingdom — is one of the four sacred dhams of India. Somnath, the first of the 12 Jyotirlingas, stands proudly against the sea, rebuilt seven times after centuries of invasions, symbolising eternal resilience and devotion.',
+        highlights: ['Dwarkadhish Temple', 'Somnath Jyotirlinga', 'Beyt Dwarka Island', 'Nageshwar Jyotirlinga', 'Rukmini Devi Temple', 'Triveni Sangam Ghat', 'Somnath Light & Sound Show', 'Bhalka Tirth'],
+        bestTime: 'Oct – Feb',
+        distance: '~350 km',
+    },
+    {
+        id: 'goa',
+        name: 'Goa',
+        tagline: 'Sun, Sea & Spice',
+        coverImage: 'https://ik.imagekit.io/dvk8nd0jx/Destination/Goa/e1ecc2c399521a5271f844af88414a61.webp?updatedAt=1772131413496',
+        images: [
+            'https://ik.imagekit.io/dvk8nd0jx/Destination/Goa/e1ecc2c399521a5271f844af88414a61.webp?updatedAt=1772131413496',
+            'https://ik.imagekit.io/dvk8nd0jx/Destination/Goa/e4a9efea5bcb8e5d7b66ab791be134ca.webp?updatedAt=1772131413275',
+            'https://ik.imagekit.io/dvk8nd0jx/Destination/Goa/8deca647c9fd0a14366176759c9f9492.webp?updatedAt=1772131413263',
+            'https://ik.imagekit.io/dvk8nd0jx/Destination/Goa/c58e421a7465ff0c08436f69033562bf.webp?updatedAt=1772131413116',
+            'https://ik.imagekit.io/dvk8nd0jx/Destination/Goa/48d1f18487eaabc49888d4f624d0b9b8.webp?updatedAt=1772131412960',
+            'https://ik.imagekit.io/dvk8nd0jx/Destination/Goa/e13d402fa0acbcbb849c66d19267ff04.webp?updatedAt=1772131412964',
+        ],
+        about: 'Goa is India\'s pocket-sized paradise — a dynamic blend of Portuguese colonial heritage and tropical Indian vibrancy. With over 100 km of golden coastline, Goa offers everything from serene sunrise beaches to electrifying beach clubs. Ancient spice plantations, baroque churches, a thriving seafood culture, and a legendary nightlife make it the ultimate all-season escape for families, couples, and groups alike.',
+        highlights: ['Baga & Calangute Beach', 'Old Goa Churches (UNESCO)', 'Dudhsagar Waterfall', 'Anjuna Flea Market', 'Spice Plantation Tour', 'Aguada Fort', 'Mandovi River Cruise', 'Casino Nights'],
+        bestTime: 'Nov – Feb',
+        distance: '~580 km',
+    },
+    {
+        id: 'saputara',
+        name: 'Saputara',
+        tagline: 'Gujarat\'s Only Hill Station',
+        coverImage: 'https://ik.imagekit.io/dvk8nd0jx/Destination/Saputara/8e487f3f78f1747658e1b594b2a4f423.webp?updatedAt=1772131413479',
+        images: [
+            'https://ik.imagekit.io/dvk8nd0jx/Destination/Saputara/8e487f3f78f1747658e1b594b2a4f423.webp?updatedAt=1772131413479',
+            'https://ik.imagekit.io/dvk8nd0jx/Destination/Saputara/gettyimages-149880075-612x612.webp?updatedAt=1772131413383',
+            'https://ik.imagekit.io/dvk8nd0jx/Destination/Saputara/gettyimages-698652878-612x612.webp?updatedAt=1772131412984',
+            'https://ik.imagekit.io/dvk8nd0jx/Destination/Saputara/62a5609aa08229e052174bc13de4253c.webp?updatedAt=1772131412973',
+        ],
+        about: 'Nestled in the Sahyadri ranges of the Western Ghats at 1,000 metres above sea level, Saputara is Gujarat\'s only hill station and a refreshing monsoon retreat. Meaning "Abode of Serpents" in Gujarati, this charming town sits inside the Dang district surrounded by dense teak forests, misty valleys, and tribal villages. The cool climate, boating lake, and scenic viewpoints make it a beloved weekend escape from Surat.',
+        highlights: ['Saputara Lake Boating', 'Sunset Point', 'Tribal Museum', 'Rose Garden', 'Gira Waterfalls', 'Step Garden', 'Ropeway Ride', 'Dang Tribal Fair (Jan)'],
+        bestTime: 'Jun – Sep (Monsoon) / Oct – Feb',
+        distance: '~100 km',
+    },
+    {
+        id: 'kutch',
+        name: 'Kutch',
+        tagline: 'The White Desert Wonder',
+        coverImage: 'https://ik.imagekit.io/dvk8nd0jx/Destination/kuchchh/fce74cd533911654db99e11cdefbbc7b.webp?updatedAt=1772131414048',
+        images: [
+            'https://ik.imagekit.io/dvk8nd0jx/Destination/kuchchh/fce74cd533911654db99e11cdefbbc7b.webp?updatedAt=1772131414048',
+            'https://ik.imagekit.io/dvk8nd0jx/Destination/kuchchh/4b5302841fbdd61efdd1566373f2f2ca.webp?updatedAt=1772131413227',
+            'https://ik.imagekit.io/dvk8nd0jx/Destination/kuchchh/497ef7b80fcb01fe9b5a25915071bd2f.webp?updatedAt=1772131413188',
+            'https://ik.imagekit.io/dvk8nd0jx/Destination/kuchchh/9984aacd7ebe31e1bc7d09f3b8e16b41.webp?updatedAt=1772131413200',
+            'https://ik.imagekit.io/dvk8nd0jx/Destination/kuchchh/12b59be3057bd4dfe00537ed91ab7325.webp?updatedAt=1772131412995',
+            'https://ik.imagekit.io/dvk8nd0jx/Destination/kuchchh/d97db57a91162278091d94202c6e20d1.webp?updatedAt=1772131412838',
+            'https://ik.imagekit.io/dvk8nd0jx/Destination/kuchchh/7d3bc63d0c39623a39bca6fc2a13f884.webp?updatedAt=1772131413253',
+        ],
+        about: 'The Rann of Kutch is one of nature\'s most extraordinary canvases — a vast salt marshland that transforms into a shimmering white desert under the full moon. Home to the world\'s largest salt desert and the vibrant Rann Utsav festival, Kutch is also famous for its extraordinary artisan traditions: hand-embroidery, Bandhani tie-dye, Ajrakh block-printing, and Rogan art. An experience that stays with you forever.',
+        highlights: ['White Rann of Kutch', 'Rann Utsav Festival', 'Dholavira (UNESCO Site)', 'Kutch Museum', 'Kalo Dungar (Black Hill)', 'Wild Ass Sanctuary', 'Bhuj Heritage Walk', 'Traditional Handicrafts'],
+        bestTime: 'Nov – Feb',
+        distance: '~330 km',
+    },
+    {
+        id: 'daman',
+        name: 'Daman',
+        tagline: 'Portugal\'s Little India',
+        coverImage: 'https://ik.imagekit.io/dvk8nd0jx/Destination/Daman/92963542f3c55b3be4bbca1445464f40.webp?updatedAt=1772131412997',
+        images: [
+            'https://ik.imagekit.io/dvk8nd0jx/Destination/Daman/92963542f3c55b3be4bbca1445464f40.webp?updatedAt=1772131412997',
+            'https://ik.imagekit.io/dvk8nd0jx/Destination/Daman/1a58d008f908470d7ba7bc2ce2653416.webp?updatedAt=1772131413002',
+            'https://ik.imagekit.io/dvk8nd0jx/Destination/Daman/8519c119d753becdc13c2b4ba737af7e.webp?updatedAt=1772131413009',
+            'https://ik.imagekit.io/dvk8nd0jx/Destination/Daman/6750a7a4fe6e882e8ed28244c7b4df2f.webp?updatedAt=1772131412841',
+            'https://ik.imagekit.io/dvk8nd0jx/Destination/Daman/371985162d077c58879224e08717874c.webp?updatedAt=1772131412674',
+        ],
+        about: 'Daman is a charming union territory on the Arabian Sea coast that seamlessly blends Portuguese colonial heritage with relaxed Indian beach culture. Divided by the Damanganga River into Moti Daman and Nani Daman, it offers well-preserved colonial forts, beautiful churches, and pristine beaches. Famous for its duty-free shopping and lighter-than-usual legal restrictions, it\'s a favourite quick getaway from Surat and South Gujarat.',
+        highlights: ['Fort of Moti Daman', 'Jampore Beach', 'Devka Beach', 'Se Cathedral', 'Mirasol Lake Garden', 'Duty-Free Shopping', 'Portuguese Cemetery', 'Damanganga River Walk'],
+        bestTime: 'Oct – Mar',
+        distance: '~130 km',
+    },
+    {
+        id: 'matheran',
+        name: 'Matheran',
+        tagline: 'Asia\'s Only Car-Free Hill Station',
+        coverImage: 'https://ik.imagekit.io/dvk8nd0jx/Destination/matheran/62d36ad9e79ecabd0a9d6a61b3e4eda4.webp?updatedAt=1772131413645',
+        images: [
+            'https://ik.imagekit.io/dvk8nd0jx/Destination/matheran/62d36ad9e79ecabd0a9d6a61b3e4eda4.webp?updatedAt=1772131413645',
+            'https://ik.imagekit.io/dvk8nd0jx/Destination/matheran/b38f496d773c9298f2600631f0aaf554.webp?updatedAt=1772131413626',
+            'https://ik.imagekit.io/dvk8nd0jx/Destination/matheran/34df52c4b2c318dd406cbb50393e3ce7.webp?updatedAt=1772131413434',
+            'https://ik.imagekit.io/dvk8nd0jx/Destination/matheran/38952c982c846e18fb1111813664fdb6.webp?updatedAt=1772131413398',
+            'https://ik.imagekit.io/dvk8nd0jx/Destination/matheran/66d9d60cda47db8f9c91e7bfc00e28a0.webp?updatedAt=1772131413242',
+            'https://ik.imagekit.io/dvk8nd0jx/Destination/matheran/50d525d54b47337430ead9da6b6947d7.webp?updatedAt=1772131413209',
+            'https://ik.imagekit.io/dvk8nd0jx/Destination/matheran/468ba4ec2cb34e9524ef0110876ab00b.webp?updatedAt=1772131412687',
+        ],
+        about: 'Matheran is unlike any hill station in the world — Asia\'s only completely motorised-vehicle-free hill resort. Perched 800 metres above sea level in the Sahyadri Mountains near Mumbai, this serene eco-sensitive zone is accessible only by foot, horseback, or India\'s oldest toy train. Dense red-earthed forests, dramatic viewpoints, and clean mountain air make it an unparalleled escape from city life.',
+        highlights: ['Panorama Point Sunrise', 'Charlotte Lake', 'Historic Toy Train Ride', 'Echo Point', 'Louisa Point', 'Horse Riding Trails', 'One Tree Hill Sunset', 'Neral Base Village'],
+        bestTime: 'Oct – May',
+        distance: '~320 km',
+    },
+    {
+        id: 'rajasthan',
+        name: 'Rajasthan',
+        tagline: 'Land of Kings & Colour',
+        coverImage: 'https://ik.imagekit.io/dvk8nd0jx/Destination/Rajsthan/38bad205e3da6151bf0b64547cb17302.webp?updatedAt=1772131413155',
+        images: [
+            'https://ik.imagekit.io/dvk8nd0jx/Destination/Rajsthan/38bad205e3da6151bf0b64547cb17302.webp?updatedAt=1772131413155',
+            'https://ik.imagekit.io/dvk8nd0jx/Destination/Rajsthan/456808873733c8a46ac08a9e5821cdaf.webp?updatedAt=1772131412728',
+            'https://ik.imagekit.io/dvk8nd0jx/Destination/Rajsthan/bf685ab810fda21f18c654ff7b83d7e4.webp?updatedAt=1772131412720',
+            'https://ik.imagekit.io/dvk8nd0jx/Destination/Rajsthan/5667319be12dbefa6833e82c831d578a.webp?updatedAt=1772131412568',
+        ],
+        about: 'Rajasthan is India\'s most theatrical state — a vivid tapestry of majestic forts, marble palaces, golden deserts, and cities painted in blue, pink, and gold. From the romantic lakes of Udaipur to the golden sands of Jaisalmer, the walled old city of Jaipur to the blue labyrinth of Jodhpur, every corner is a photographic masterpiece. Mahadev Krupa offers seamless multi-city Rajasthan tour packages from Surat.',
+        highlights: ['Jaipur Pink City & Amber Fort', 'Jodhpur Mehrangarh Fort', 'Jaisalmer Desert Safari', 'Pushkar Camel Fair', 'Ranthambore Tiger Reserve', 'Chittorgarh Fort', 'Mount Abu Wildlife', 'Heritage Hotel Stays'],
+        bestTime: 'Oct – Mar',
+        distance: '~500–900 km',
+    },
+    {
+        id: 'statue-of-unity',
+        name: 'Statue of Unity',
+        tagline: 'World\'s Tallest Statue',
+        coverImage: 'https://ik.imagekit.io/dvk8nd0jx/Destination/statue%20of%20unity/707b86d79271186e81a1a972ce397efd.webp?updatedAt=1772131412637',
+        images: [
+            'https://ik.imagekit.io/dvk8nd0jx/Destination/statue%20of%20unity/707b86d79271186e81a1a972ce397efd.webp?updatedAt=1772131412637',
+            'https://ik.imagekit.io/dvk8nd0jx/Destination/statue%20of%20unity/bda28476c0e8ec9c42434606fcf2f0f6.webp?updatedAt=1772131412482',
+            'https://ik.imagekit.io/dvk8nd0jx/Destination/statue%20of%20unity/e6cc5a5724c69cc265dac34bbbd41835.webp?updatedAt=1772131412358',
+        ],
+        about: 'The Statue of Unity stands as a monumental tribute to Sardar Vallabhbhai Patel — the Iron Man who unified 562 princely states into modern India. At 182 metres, it is the world\'s tallest statue, situated on a river island near Kevadia, Gujarat, dramatically rising from the Narmada river surrounded by the Vindhya and Satpura mountain ranges. The viewing gallery at 153 metres offers breathtaking panoramic views.',
+        highlights: ['Viewing Gallery (153m)', 'Valley of Flowers', 'Sardar Sarovar Dam', 'Jungle Safari', 'Kevadia Zoo', 'Cactus Garden', 'Children\'s Nutrition Park', 'Tent City Glamping'],
+        bestTime: 'Oct – Mar',
+        distance: '~180 km',
+    },
 ];
+
 
 // ─── Testimonials ─────────────────────────────────────────────
 export interface Testimonial {

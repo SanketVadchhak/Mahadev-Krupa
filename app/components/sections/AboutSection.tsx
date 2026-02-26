@@ -2,8 +2,17 @@
 
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
-import { Calendar, Car, Users, Clock, Shield } from 'lucide-react';
+import { Calendar, Car, Users, Clock, Shield, CheckCircle2, Phone, MessageCircle, MapPin } from 'lucide-react';
 import Section from '../ui/Section';
+
+const whyChooseUs = [
+    { title: 'No Hidden Charges', desc: 'Transparent pricing — what we quote is what you pay. No tolls, no fuel surcharges, no surprises.' },
+    { title: 'Professional Drivers', desc: 'Verified, experienced drivers who know every route across Gujarat, Rajasthan, Goa, and beyond.' },
+    { title: 'Well-Maintained Fleet', desc: 'Every vehicle is deep-cleaned and mechanically inspected before each trip. Your comfort is guaranteed.' },
+    { title: 'GPS-Tracked Journeys', desc: 'Real-time tracking on every ride so your family always knows you\u0027re safe on the road.' },
+    { title: 'Flexible Cancellations', desc: 'Plans changed? Cancel up to 48 hours before departure for a full refund — no questions asked.' },
+    { title: 'Custom Packages Available', desc: 'Don\u0027t see what you need? Call us and we\u0027ll tailor a trip specifically for your group.' },
+];
 
 export default function AboutSection() {
     const ref = useRef(null);
@@ -12,7 +21,9 @@ export default function AboutSection() {
     return (
         <Section id="about" className="py-16 md:py-24 lg:py-32">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="grid lg:grid-cols-2 gap-16 items-center">
+
+                {/* Top: Stats + Story */}
+                <div className="grid lg:grid-cols-2 gap-16 items-center mb-20">
 
                     {/* Left — stats card */}
                     <div ref={ref} className="relative">
@@ -68,20 +79,20 @@ export default function AboutSection() {
 
                     {/* Right — content */}
                     <div>
-                        <span className="text-sm font-semibold text-amber-400 tracking-widest uppercase mb-4 block font-heading">Our Legacy</span>
+                        <span className="text-sm font-semibold text-amber-400 tracking-widest uppercase mb-4 block font-heading">About Us</span>
                         <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold font-display mb-6">
                             <span className="text-white">A Decade of </span>
                             <span className="gradient-text">Trusted Travel</span>
                         </h2>
                         <div className="space-y-4 text-gray-400 leading-relaxed">
                             <p>
-                                <strong className="text-white">Mahadev Krupa Tours & Travels</strong> has been Gujarat&apos;s most trusted name in luxury ground transportation for over a decade. Founded with a vision to redefine travel comfort, we have grown from a small fleet to a premier travel agency serving thousands of satisfied clients.
+                                <strong className="text-white">Mahadev Krupa Tours & Travels</strong> has been Surat&apos;s most trusted name in luxury ground transportation for over a decade. What started as a small family-run fleet has grown into a premier travel agency with 50+ premium vehicles — from comfortable sedans to full-size luxury coaches — serving over 500 happy families across Gujarat and India.
                             </p>
                             <p>
-                                Our commitment goes beyond just providing vehicles. We deliver <span className="text-amber-400">experiences</span> — from the moment you book to the moment you reach your destination. Every vehicle in our fleet is meticulously maintained, every driver professionally trained, and every journey GPS-tracked for your complete peace of mind.
+                                We don&apos;t just provide vehicles — we deliver <span className="text-amber-400">peace of mind</span>. Every vehicle is deep-cleaned before your trip, every driver is locally experienced and professionally trained, and every journey is GPS-tracked so your family always knows you&apos;re safe.
                             </p>
                             <p>
-                                Whether it&apos;s a corporate event, a dream wedding, a family vacation, or a simple airport transfer, we bring the same level of <span className="text-yellow-400">dedication and luxury</span> to every ride.
+                                Whether you&apos;re planning a <span className="text-yellow-400">family pilgrimage to Dwarka</span>, a weekend getaway to Goa, a grand wedding fleet, or a corporate retreat — we handle everything so you can simply enjoy the journey.
                             </p>
                         </div>
                         <div className="mt-8 flex flex-wrap gap-4">
@@ -93,6 +104,91 @@ export default function AboutSection() {
                             </a>
                         </div>
                     </div>
+                </div>
+
+                {/* Bottom: Why Choose Us + CTA */}
+                <div>
+                    <div className="text-center mb-12">
+                        <span className="text-sm font-semibold text-amber-400 tracking-widest uppercase mb-4 block font-heading">Why Families Trust Us</span>
+                        <h3 className="text-2xl md:text-3xl font-bold font-display">
+                            <span className="text-white">The Mahadev Krupa </span>
+                            <span className="gradient-text">Promise</span>
+                        </h3>
+                    </div>
+
+                    <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-12">
+                        {whyChooseUs.map((item, i) => (
+                            <motion.div
+                                key={item.title}
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.4, delay: i * 0.07 }}
+                                className="p-5 rounded-2xl glass hover:border-amber-400/30 transition-all duration-300 group"
+                            >
+                                <div className="flex items-start gap-3">
+                                    <CheckCircle2 size={18} className="text-amber-400 mt-0.5 shrink-0 group-hover:text-yellow-300 transition-colors" />
+                                    <div>
+                                        <h4 className="text-white font-semibold text-sm mb-1">{item.title}</h4>
+                                        <p className="text-gray-500 text-xs leading-relaxed">{item.desc}</p>
+                                    </div>
+                                </div>
+                            </motion.div>
+                        ))}
+                    </div>
+
+                    {/* Contact CTA Banner */}
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.5 }}
+                        className="relative rounded-2xl overflow-hidden"
+                        style={{ background: 'linear-gradient(135deg, rgba(212,168,67,0.08) 0%, rgba(212,168,67,0.03) 100%)', border: '1px solid rgba(212,168,67,0.2)' }}
+                    >
+                        <div className="absolute inset-0 grid-pattern opacity-20" />
+                        <div className="relative p-6 md:p-10 flex flex-col md:flex-row items-center justify-between gap-6">
+                            <div className="text-center md:text-left">
+                                <h3 className="text-xl md:text-2xl font-bold text-white font-heading mb-2">
+                                    Ready to Plan Your Trip?
+                                </h3>
+                                <p className="text-gray-400 text-sm max-w-lg">
+                                    Talk to our travel experts — we&apos;ll help you pick the right vehicle, plan your route, and give you the best all-inclusive price. No commitment required.
+                                </p>
+                            </div>
+                            <div className="flex flex-col sm:flex-row gap-3 shrink-0">
+                                <a
+                                    href="tel:+919714555226"
+                                    className="flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-amber-500 to-yellow-600 text-white font-semibold hover:shadow-lg hover:shadow-amber-500/30 transition-all duration-300 text-sm"
+                                >
+                                    <Phone size={16} />
+                                    Call Now
+                                </a>
+                                <a
+                                    href="https://wa.me/919714555226?text=Hi%20Mahadev%20Krupa!%20I%20would%20like%20to%20know%20more%20about%20your%20travel%20services."
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="flex items-center justify-center gap-2 px-6 py-3 rounded-full neon-border text-white font-semibold hover:shadow-lg hover:shadow-amber-400/20 transition-all duration-300 text-sm"
+                                >
+                                    <MessageCircle size={16} />
+                                    WhatsApp Us
+                                </a>
+                            </div>
+                        </div>
+
+                        {/* Address line */}
+                        <div className="relative border-t border-amber-400/10 px-6 md:px-10 py-4 flex flex-col sm:flex-row items-center justify-center gap-2 text-center">
+                            <MapPin size={13} className="text-amber-400 shrink-0" />
+                            <a
+                                href="https://maps.app.goo.gl/H3hwoW7uTNTBC4TJA"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-gray-500 text-xs hover:text-amber-400 transition-colors"
+                            >
+                                Mahadev Car World, B/H Punjan Plaza, BRTS Rd, opp. Vanmali Junction, Surat, Gujarat 395006
+                            </a>
+                        </div>
+                    </motion.div>
                 </div>
             </div>
         </Section>

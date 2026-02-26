@@ -23,8 +23,14 @@ export default function Footer() {
                             Gujarat&apos;s premier luxury travel agency. Premium vehicles &amp; professional service.
                         </p>
                         <div className="flex gap-3">
-                            {[Facebook, Instagram, Twitter, Youtube].map((Icon, i) => (
-                                <a key={i} href="#" className="w-10 h-10 rounded-xl glass flex items-center justify-center text-gray-400 hover:bg-amber-500/20 hover:text-amber-400 transition-all duration-300">
+                            {[
+                                { Icon: Facebook, href: '#' },
+                                { Icon: Instagram, href: 'https://www.instagram.com/mahadev_krupa_tours_travels/' },
+                                { Icon: Twitter, href: '#' },
+                                { Icon: Youtube, href: 'http://www.youtube.com/@mahadevkrupatourstravels' },
+                            ].map(({ Icon, href }, i) => (
+                                <a key={i} href={href} target="_blank" rel="noopener noreferrer"
+                                    className="w-10 h-10 rounded-xl glass flex items-center justify-center text-gray-400 hover:bg-amber-500/20 hover:text-amber-400 transition-all duration-300">
                                     <Icon size={18} />
                                 </a>
                             ))}
@@ -34,11 +40,18 @@ export default function Footer() {
                     <div>
                         <h4 className="text-white font-bold mb-6 font-heading">Quick Links</h4>
                         <ul className="space-y-3">
-                            {['Services', 'Fleet', 'About Us', 'Gallery', 'Testimonials', 'Contact'].map(link => (
-                                <li key={link}>
-                                    <a href={`#${link.toLowerCase().replace(' ', '')}`} className="text-gray-400 hover:text-amber-400 transition-colors text-sm flex items-center gap-2 group">
+                            {[
+                                { label: 'Services', href: '#services' },
+                                { label: 'Fleet', href: '#fleet' },
+                                { label: 'About Us', href: '#about' },
+                                { label: 'Gallery', href: '#gallery' },
+                                { label: 'Testimonials', href: '#testimonials' },
+                                { label: 'Contact', href: '#contact' },
+                            ].map(link => (
+                                <li key={link.label}>
+                                    <a href={link.href} className="text-gray-400 hover:text-amber-400 transition-colors text-sm flex items-center gap-2 group">
                                         <ChevronRight size={14} className="group-hover:translate-x-1 transition-transform" />
-                                        {link}
+                                        {link.label}
                                     </a>
                                 </li>
                             ))}
@@ -75,8 +88,8 @@ export default function Footer() {
                                     Surat, Gujarat 395006
                                 </a>
                             </li>
-                            <li className="flex items-center gap-3"><Phone size={16} className="text-amber-400 shrink-0" /><span className="text-gray-400 text-sm">+91 98765 43210</span></li>
-                            <li className="flex items-center gap-3"><Mail size={16} className="text-amber-400 shrink-0" /><span className="text-gray-400 text-sm">info@mahadevkrupa.com</span></li>
+                            <li className="flex items-center gap-3"><Phone size={16} className="text-amber-400 shrink-0" /><a href="tel:+919714555226" className="text-gray-400 text-sm hover:text-amber-400 transition-colors">+91 97145 55226</a></li>
+                            <li className="flex items-center gap-3"><Mail size={16} className="text-amber-400 shrink-0" /><a href="mailto:mahadevkrupatourstravels@gmail.com" className="text-gray-400 text-sm hover:text-amber-400 transition-colors">mahadevkrupatourstravels@gmail.com</a></li>
                             <li className="flex items-center gap-3"><Clock size={16} className="text-amber-400 shrink-0" /><span className="text-gray-400 text-sm">24/7 Service Available</span></li>
                         </ul>
                     </div>
@@ -85,8 +98,8 @@ export default function Footer() {
                 <div className="flex flex-col md:flex-row items-center justify-between gap-4 mb-6">
                     <p className="text-gray-500 text-sm">© {new Date().getFullYear()} Mahadev Krupa Tours & Travels. All rights reserved.</p>
                     <div className="flex gap-6">
-                        <a href="#" className="text-gray-500 hover:text-gray-300 text-sm transition-colors">Privacy Policy</a>
-                        <a href="#" className="text-gray-500 hover:text-gray-300 text-sm transition-colors">Terms of Service</a>
+                        <a href="/privacy-policy" className="text-gray-500 hover:text-gray-300 text-sm transition-colors">Privacy Policy</a>
+                        <a href="/terms-of-service" className="text-gray-500 hover:text-gray-300 text-sm transition-colors">Terms of Service</a>
                     </div>
                 </div>
 

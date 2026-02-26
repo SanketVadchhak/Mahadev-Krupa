@@ -32,7 +32,7 @@ export default function QuickBookingPanel() {
 
     const summaryText = [
         selectedVehicle ? selectedVehicle.name.toUpperCase() : 'SELECT VEHICLE',
-        `${booking.passengers} PAX`,
+        `${booking.passengers} Passengers`,
         booking.date,
     ].join(' · ');
 

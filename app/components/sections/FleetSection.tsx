@@ -343,7 +343,7 @@ export default function FleetSection() {
                                 <span className="text-white">Luxury </span>
                                 <span className="gradient-text">Vehicle Fleet</span>
                             </h2>
-                            <p className="text-gray-400 mt-3 max-w-lg text-sm md:text-base">
+                            <p className="text-gray-400 mt-3 max-w-lg text-base md:text-lg">
                                 From intimate family getaways to large group expeditions — discover our hand-curated collection of premium vehicles.
                             </p>
                         </div>
