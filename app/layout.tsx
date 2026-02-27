@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { Playfair_Display, Inter, Space_Grotesk } from 'next/font/google';
+import { Analytics } from '@vercel/analytics/next';
 import './globals.css';
 
 const inter = Inter({
@@ -181,6 +182,7 @@ export default function RootLayout({
                 <div style={{ overflowX: 'clip', width: '100%', position: 'relative' }}>
                     {children}
                 </div>
+                <Analytics />
             </body>
         </html>
     );
