@@ -13,33 +13,32 @@ import Footer from './sections/Footer';
 import FloatingButtons from './FloatingButtons';
 import QuickBookingPanel from './QuickBookingPanel';
 
-// Thin gradient section divider
-function Divider({ color = 'amber-500/20' }) {
+// Animated glow divider between sections
+function GlowDivider() {
   return (
     <div className="max-w-7xl mx-auto px-8">
-      <div className={`h-px bg-gradient-to-r from-transparent via-${color} to-transparent`} />
+      <div className="section-glow-divider" />
     </div>
   );
 }
 
 export default function HomePage() {
   return (
-    /* pb-24 gives clearance so the fixed QuickBookingPanel doesn't overlap footer content */
     <div className="relative min-h-screen bg-dark-bg text-white" style={{ overflowX: 'clip' }}>
       <ParticleField />
       <Navbar />
       <HeroSection />
-      <Divider color="amber-500/20" />
+      <GlowDivider />
       <ServicesSection />
-      <Divider color="yellow-400/20" />
+      <GlowDivider />
       <FleetSection />
-      <Divider color="amber-400/20" />
+      <GlowDivider />
       <AboutSection />
-      <Divider color="amber-500/20" />
+      <GlowDivider />
       <GallerySection />
-      <Divider color="yellow-400/20" />
+      <GlowDivider />
       <TestimonialsSection />
-      <Divider color="amber-400/20" />
+      <GlowDivider />
       <ContactSection />
       <Footer />
       <FloatingButtons />

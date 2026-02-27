@@ -53,7 +53,7 @@ export default function HeroSection() {
                         >
                             <span className="text-white">Journey in</span>
                             <br />
-                            <span className="gradient-text">Vibrant Luxury</span>
+                            <span className="gradient-text-shimmer">Vibrant Luxury</span>
                         </motion.h1>
 
                         <motion.p

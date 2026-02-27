@@ -213,8 +213,8 @@ input[type="submit"] {
 /* Grid Pattern Background */
 .grid-pattern {
   background-image:
-    linear-gradient(rgba(212, 168, 67, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(212, 168, 67, 0.03) 1px, transparent 1px);
+    linear-gradient(rgba(212, 168, 67, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(212, 168, 67, 0.06) 1px, transparent 1px);
   background-size: 60px 60px;
 }
 
@@ -297,13 +297,108 @@ input[type="submit"] {
   opacity: 1;
 }
 
-/* Particle background */
+/* Particle background (fallback) */
 .particle {
   position: absolute;
-  width: 2px;
-  height: 2px;
-  background: rgba(212, 168, 67, 0.5);
+  width: 3px;
+  height: 3px;
+  background: rgba(212, 168, 67, 0.7);
   border-radius: 50%;
+  box-shadow: 0 0 6px rgba(212, 168, 67, 0.4);
   animation: float-slow var(--duration, 8s) ease-in-out infinite;
   animation-delay: var(--delay, 0s);
+}
+
+/* Shimmer sweep for gradient text */
+@keyframes shimmer {
+  0% {
+    background-position: -200% center;
+  }
+
+  100% {
+    background-position: 200% center;
+  }
+}
+
+.gradient-text-shimmer {
+  background: linear-gradient(90deg,
+      #D4A843 0%,
+      #F5E6B8 25%,
+      #D4A843 50%,
+      #B8902E 75%,
+      #D4A843 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 4s linear infinite;
+}
+
+/* Glow orbs that float between sections */
+.glow-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  pointer-events: none;
+  animation: float-slow 12s ease-in-out infinite;
+  will-change: transform;
+}
+
+/* Section separator glow */
+@keyframes glow-pulse {
+
+  0%,
+  100% {
+    opacity: 0.3;
+    transform: scaleX(0.8);
+  }
+
+  50% {
+    opacity: 0.7;
+    transform: scaleX(1);
+  }
+}
+
+.section-glow-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(212, 168, 67, 0.4) 30%, rgba(212, 168, 67, 0.5) 50%, rgba(212, 168, 67, 0.4) 70%, transparent);
+  animation: glow-pulse 3s ease-in-out infinite;
+}
+
+/* Hover 3D tilt effect — safe for modern browsers */
+@keyframes subtle-breathe {
+
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.01);
+  }
+}
+
+.card-breathe:hover {
+  animation: subtle-breathe 2s ease-in-out infinite;
+}
+
+/* Footer road scene animations */
+@keyframes scroll-landscape {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes scroll-road {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-40px);
+  }
 }
