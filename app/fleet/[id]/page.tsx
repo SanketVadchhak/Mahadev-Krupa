@@ -32,7 +32,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
     const pageTitle = `${vehicle.name} Hire in Surat | ${vehicle.category} Car Rental`;
     const pageDescription = `Book luxury ${vehicle.name} (${vehicle.seats}) in Surat, Gujarat. ${vehicle.description.slice(0, 150)}... 24/7 service. Call +91 97145 55226.`;
-    const canonicalUrl = `https://mahadevkrupa.com/fleet/${vehicle.id}`;
+    const canonicalUrl = `https://mahadevkrupa.vercel.app/fleet/${vehicle.id}`;
 
     return {
         title: pageTitle,
@@ -89,7 +89,7 @@ export default async function VehicleDetailPage({ params }: Props) {
         image: vehicle.coverImage,
         description: vehicle.description,
         telephone: '+919714555226',
-        url: `https://mahadevkrupa.com/fleet/${vehicle.id}`,
+        url: `https://mahadevkrupa.vercel.app/fleet/${vehicle.id}`,
         address: {
             '@type': 'PostalAddress',
             streetAddress: 'Mahadev Car World, B/H Punjan Plaza, BRTS Rd, opp. Vanmali Junction',
@@ -117,19 +117,19 @@ export default async function VehicleDetailPage({ params }: Props) {
                 '@type': 'ListItem',
                 position: 1,
                 name: 'Home',
-                item: 'https://mahadevkrupa.com',
+                item: 'https://mahadevkrupa.vercel.app',
             },
             {
                 '@type': 'ListItem',
                 position: 2,
                 name: 'Fleet',
-                item: 'https://mahadevkrupa.com/#fleet',
+                item: 'https://mahadevkrupa.vercel.app/#fleet',
             },
             {
                 '@type': 'ListItem',
                 position: 3,
                 name: vehicle.name,
-                item: `https://mahadevkrupa.com/fleet/${vehicle.id}`,
+                item: `https://mahadevkrupa.vercel.app/fleet/${vehicle.id}`,
             },
         ],
     };

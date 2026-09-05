@@ -9,6 +9,6 @@ export default function robots(): MetadataRoute.Robots {
                 disallow: ['/api/', '/_next/'],
             },
         ],
-        sitemap: 'https://mahadevkrupa.com/sitemap.xml',
+        sitemap: 'https://mahadevkrupa.vercel.app/sitemap.xml',
     };
 }

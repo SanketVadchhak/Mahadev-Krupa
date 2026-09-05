@@ -5,7 +5,7 @@ export const metadata: Metadata = {
     title: 'Privacy Policy | Mahadev Krupa Tours & Travels',
     description: 'Privacy Policy for Mahadev Krupa Tours & Travels — how we collect, use, and protect your personal information.',
     alternates: {
-        canonical: 'https://mahadevkrupa.com/privacy-policy',
+        canonical: 'https://mahadevkrupa.vercel.app/privacy-policy',
     },
 };
 
@@ -18,13 +18,13 @@ export default function PrivacyPolicyPage() {
                 '@type': 'ListItem',
                 position: 1,
                 name: 'Home',
-                item: 'https://mahadevkrupa.com',
+                item: 'https://mahadevkrupa.vercel.app',
             },
             {
                 '@type': 'ListItem',
                 position: 2,
                 name: 'Privacy Policy',
-                item: 'https://mahadevkrupa.com/privacy-policy',
+                item: 'https://mahadevkrupa.vercel.app/privacy-policy',
             },
         ],
     };

@@ -1,15 +1,15 @@
 # Google Search Console & Local SEO Submission Guide
 
-This guide provides step-by-step instructions for **Mahadev Krupa Tours & Travels** (`mahadevkrupa.com`) to maximize search engine indexing, local map rankings, and rich snippet visibility on Google Search and Bing.
+This guide provides step-by-step instructions for **Mahadev Krupa Tours & Travels** (`mahadevkrupa.vercel.app`) to maximize search engine indexing, local map rankings, and rich snippet visibility on Google Search and Bing.
 
 ---
 
 ## 1. Submit Sitemap to Google Search Console (GSC)
 
 1. Go to [Google Search Console](https://search.google.com/search-console).
-2. Add property `https://mahadevkrupa.com` (using Domain DNS verification or HTML tag).
+2. Add property `https://mahadevkrupa.vercel.app` (using URL prefix or domain verification).
 3. In the left sidebar, click **Sitemaps**.
-4. Enter the sitemap URL: `https://mahadevkrupa.com/sitemap.xml` and click **Submit**.
+4. Enter the sitemap URL: `https://mahadevkrupa.vercel.app/sitemap.xml` and click **Submit**.
 5. Verify that GSC successfully discovers all 24+ static URLs (including homepage, privacy policy, terms of service, `/fleet/*` pages, and `/destinations/*` pages).
 
 ---
@@ -19,16 +19,16 @@ This guide provides step-by-step instructions for **Mahadev Krupa Tours & Travel
 Use the **URL Inspection Tool** in Google Search Console to request immediate indexing for high-volume keywords:
 
 ### High-Priority Vehicle Pages:
-- `https://mahadevkrupa.com/fleet/kia-carens` (Target: *Kia Carens rental in Surat*)
-- `https://mahadevkrupa.com/fleet/urbania-12` (Target: *Force Urbania hire Surat*)
-- `https://mahadevkrupa.com/fleet/tempo-traveller-17` (Target: *17 seater Tempo Traveller Surat*)
-- `https://mahadevkrupa.com/fleet/tata-winger` (Target: *Tata Winger bus rental Surat*)
+- `https://mahadevkrupa.vercel.app/fleet/kia-carens` (Target: *Kia Carens rental in Surat*)
+- `https://mahadevkrupa.vercel.app/fleet/urbania-12` (Target: *Force Urbania hire Surat*)
+- `https://mahadevkrupa.vercel.app/fleet/tempo-traveller-17` (Target: *17 seater Tempo Traveller Surat*)
+- `https://mahadevkrupa.vercel.app/fleet/tata-winger` (Target: *Tata Winger bus rental Surat*)
 
 ### High-Priority Route Pages:
-- `https://mahadevkrupa.com/destinations/statue-of-unity` (Target: *Surat to Statue of Unity cab*)
-- `https://mahadevkrupa.com/destinations/dwarka-somnath` (Target: *Surat to Dwarka Somnath tour*)
-- `https://mahadevkrupa.com/destinations/goa` (Target: *Surat to Goa cab package*)
-- `https://mahadevkrupa.com/destinations/udaipur` (Target: *Surat to Rajasthan tour*)
+- `https://mahadevkrupa.vercel.app/destinations/statue-of-unity` (Target: *Surat to Statue of Unity cab*)
+- `https://mahadevkrupa.vercel.app/destinations/dwarka-somnath` (Target: *Surat to Dwarka Somnath tour*)
+- `https://mahadevkrupa.vercel.app/destinations/goa` (Target: *Surat to Goa cab package*)
+- `https://mahadevkrupa.vercel.app/destinations/udaipur` (Target: *Surat to Rajasthan tour*)
 
 ---
 
@@ -52,7 +52,7 @@ Your website includes structured `LocalBusiness` and `AggregateRating` schema ma
 
 1. Go to [Bing Webmaster Tools](https://www.bing.com/webmasters).
 2. Sign in and import your site settings directly from Google Search Console.
-3. Submit `https://mahadevkrupa.com/sitemap.xml`.
+3. Submit `https://mahadevkrupa.vercel.app/sitemap.xml`.
 
 ---
 

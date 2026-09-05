@@ -5,7 +5,7 @@ export const metadata: Metadata = {
     title: 'Terms of Service | Mahadev Krupa Tours & Travels',
     description: 'Terms of Service for Mahadev Krupa Tours & Travels — booking terms, cancellations, liability, and usage conditions.',
     alternates: {
-        canonical: 'https://mahadevkrupa.com/terms-of-service',
+        canonical: 'https://mahadevkrupa.vercel.app/terms-of-service',
     },
 };
 
@@ -18,13 +18,13 @@ export default function TermsOfServicePage() {
                 '@type': 'ListItem',
                 position: 1,
                 name: 'Home',
-                item: 'https://mahadevkrupa.com',
+                item: 'https://mahadevkrupa.vercel.app',
             },
             {
                 '@type': 'ListItem',
                 position: 2,
                 name: 'Terms of Service',
-                item: 'https://mahadevkrupa.com/terms-of-service',
+                item: 'https://mahadevkrupa.vercel.app/terms-of-service',
             },
         ],
     };

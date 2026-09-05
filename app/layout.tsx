@@ -21,7 +21,7 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-    metadataBase: new URL('https://mahadevkrupa.com'),
+    metadataBase: new URL('https://mahadevkrupa.vercel.app'),
     title: {
         default: 'Mahadev Krupa Tours & Travels | Premium Car Rental & Tour Packages in Surat, Gujarat',
         template: '%s | Mahadev Krupa Tours & Travels',
@@ -65,7 +65,7 @@ export const metadata: Metadata = {
         title: 'Mahadev Krupa Tours & Travels | Car Rental & Tour Packages in Surat',
         description:
             'Surat\'s leading luxury travel agency. Premium car hire, tempo travellers, Urbania buses, wedding fleets, and pilgrimage tours across Gujarat & India.',
-        url: 'https://mahadevkrupa.com',
+        url: 'https://mahadevkrupa.vercel.app',
         siteName: 'Mahadev Krupa Tours & Travels',
         locale: 'en_IN',
         type: 'website',
@@ -98,7 +98,7 @@ export const metadata: Metadata = {
         },
     },
     alternates: {
-        canonical: 'https://mahadevkrupa.com',
+        canonical: 'https://mahadevkrupa.vercel.app',
     },
     category: 'travel',
 };
@@ -122,14 +122,14 @@ export default function RootLayout({
                         __html: JSON.stringify({
                             '@context': 'https://schema.org',
                             '@type': 'LocalBusiness',
-                            '@id': 'https://mahadevkrupa.com',
+                            '@id': 'https://mahadevkrupa.vercel.app',
                             name: 'Mahadev Krupa Tours & Travels',
                             description: 'Premium car rental, tour packages, tempo traveller, Urbania bus hire, and wedding fleet services in Surat, Gujarat.',
-                            url: 'https://mahadevkrupa.com',
+                            url: 'https://mahadevkrupa.vercel.app',
                             telephone: '+919714555226',
                             email: 'mahadevkrupatourstravels@gmail.com',
-                            image: 'https://mahadevkrupa.com/assets/brand/og-logo.png',
-                            logo: 'https://mahadevkrupa.com/assets/brand/og-logo.png',
+                            image: 'https://mahadevkrupa.vercel.app/assets/brand/og-logo.png',
+                            logo: 'https://mahadevkrupa.vercel.app/assets/brand/og-logo.png',
                             priceRange: '₹₹',
                             currenciesAccepted: 'INR',
                             paymentAccepted: 'Cash, UPI, Bank Transfer',

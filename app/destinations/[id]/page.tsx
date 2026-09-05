@@ -30,7 +30,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
     const pageTitle = `${dest.name} Tour Package from Surat | ${dest.tagline}`;
     const pageDescription = `Book comfortable cab & tempo traveller tour packages from Surat to ${dest.name} (${dest.distance}). ${dest.about.slice(0, 140)}... Call +91 97145 55226.`;
-    const canonicalUrl = `https://mahadevkrupa.com/destinations/${dest.id}`;
+    const canonicalUrl = `https://mahadevkrupa.vercel.app/destinations/${dest.id}`;
 
     return {
         title: pageTitle,
@@ -108,19 +108,19 @@ export default async function DestinationDetailPage({ params }: Props) {
                 '@type': 'ListItem',
                 position: 1,
                 name: 'Home',
-                item: 'https://mahadevkrupa.com',
+                item: 'https://mahadevkrupa.vercel.app',
             },
             {
                 '@type': 'ListItem',
                 position: 2,
                 name: 'Destinations',
-                item: 'https://mahadevkrupa.com/#gallery',
+                item: 'https://mahadevkrupa.vercel.app/#gallery',
             },
             {
                 '@type': 'ListItem',
                 position: 3,
                 name: dest.name,
-                item: `https://mahadevkrupa.com/destinations/${dest.id}`,
+                item: `https://mahadevkrupa.vercel.app/destinations/${dest.id}`,
             },
         ],
     };
