@@ -100,6 +100,9 @@ export const metadata: Metadata = {
     alternates: {
         canonical: 'https://mahadevkrupa.vercel.app',
     },
+    verification: {
+        google: 'hrSUpP9SF-KhXPoSV2hXdSfZsg4juEYAYlSYJa9h7e0l',
+    },
     category: 'travel',
 };
 
