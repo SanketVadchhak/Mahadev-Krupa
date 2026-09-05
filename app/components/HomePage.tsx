@@ -1,5 +1,3 @@
-'use client';
-
 import ParticleField from './ui/ParticleField';
 import Navbar from './sections/Navbar';
 import HeroSection from './sections/HeroSection';
