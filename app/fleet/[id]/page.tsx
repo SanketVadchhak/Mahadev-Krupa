@@ -109,12 +109,41 @@ export default async function VehicleDetailPage({ params }: Props) {
         },
     };
 
+    const breadcrumbJsonLd = {
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+            {
+                '@type': 'ListItem',
+                position: 1,
+                name: 'Home',
+                item: 'https://mahadevkrupa.com',
+            },
+            {
+                '@type': 'ListItem',
+                position: 2,
+                name: 'Fleet',
+                item: 'https://mahadevkrupa.com/#fleet',
+            },
+            {
+                '@type': 'ListItem',
+                position: 3,
+                name: vehicle.name,
+                item: `https://mahadevkrupa.com/fleet/${vehicle.id}`,
+            },
+        ],
+    };
+
     return (
         <main className="min-h-screen bg-dark-bg text-white relative">
             {/* JSON-LD Schema */}
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+            />
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
             />
 
             <Navbar />

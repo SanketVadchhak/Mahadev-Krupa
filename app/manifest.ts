@@ -1,0 +1,25 @@
+import type { MetadataRoute } from 'next';
+
+export default function manifest(): MetadataRoute.Manifest {
+    return {
+        name: 'Mahadev Krupa Tours & Travels',
+        short_name: 'Mahadev Krupa',
+        description: 'Surat\'s most trusted luxury travel agency. Book premium car rentals, tempo travellers, Urbania buses, and tour packages.',
+        start_url: '/',
+        display: 'standalone',
+        background_color: '#121212',
+        theme_color: '#D4A843',
+        icons: [
+            {
+                src: '/assets/brand/og-logo.png',
+                sizes: '192x192',
+                type: 'image/png',
+            },
+            {
+                src: '/assets/brand/og-logo.png',
+                sizes: '512x512',
+                type: 'image/png',
+            },
+        ],
+    };
+}

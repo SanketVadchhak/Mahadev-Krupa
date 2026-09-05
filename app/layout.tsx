@@ -56,10 +56,11 @@ export const metadata: Metadata = {
     creator: 'Mahadev Krupa Tours & Travels',
     publisher: 'Mahadev Krupa Tours & Travels',
     icons: {
-        icon: '/assets/brand/og-logo.png',
-        shortcut: '/assets/brand/og-logo.png',
-        apple: '/assets/brand/og-logo.png',
+        icon: '/icon',
+        shortcut: '/icon',
+        apple: '/apple-icon',
     },
+    manifest: '/manifest.webmanifest',
     openGraph: {
         title: 'Mahadev Krupa Tours & Travels | Car Rental & Tour Packages in Surat',
         description:
@@ -161,6 +162,13 @@ export default function RootLayout({
                                 'https://www.instagram.com/mahadev_krupa_tours_travels/',
                                 'http://www.youtube.com/@mahadevkrupatourstravels',
                             ],
+                            aggregateRating: {
+                                '@type': 'AggregateRating',
+                                ratingValue: '4.9',
+                                reviewCount: '520',
+                                bestRating: '5',
+                                worstRating: '1',
+                            },
                             hasOfferCatalog: {
                                 '@type': 'OfferCatalog',
                                 name: 'Travel Services',

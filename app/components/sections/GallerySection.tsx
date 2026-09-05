@@ -48,7 +48,7 @@ export default function GallerySection() {
                                 {/* Real cover photo */}
                                 <img
                                     src={dest.coverImage}
-                                    alt={dest.name}
+                                    alt={`${dest.name} Tour Package from Surat`}
                                     className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                                     loading="lazy"
                                 />

@@ -201,7 +201,7 @@ function VehicleCard({ car, onViewDetails, index }: { car: FleetCar; onViewDetai
 
                     <img
                         src={car.coverImage}
-                        alt={car.name}
+                        alt={`${car.name} (${car.seats}) Luxury Car Hire in Surat`}
                         loading="lazy"
                         className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-106"
                         style={{ transition: 'transform 0.7s ease' }}

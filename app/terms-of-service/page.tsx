@@ -4,11 +4,37 @@ import Link from 'next/link';
 export const metadata: Metadata = {
     title: 'Terms of Service | Mahadev Krupa Tours & Travels',
     description: 'Terms of Service for Mahadev Krupa Tours & Travels — booking terms, cancellations, liability, and usage conditions.',
+    alternates: {
+        canonical: 'https://mahadevkrupa.com/terms-of-service',
+    },
 };
 
 export default function TermsOfServicePage() {
+    const breadcrumbJsonLd = {
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+            {
+                '@type': 'ListItem',
+                position: 1,
+                name: 'Home',
+                item: 'https://mahadevkrupa.com',
+            },
+            {
+                '@type': 'ListItem',
+                position: 2,
+                name: 'Terms of Service',
+                item: 'https://mahadevkrupa.com/terms-of-service',
+            },
+        ],
+    };
+
     return (
         <main className="min-h-screen bg-dark-bg text-gray-300">
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+            />
             {/* Header */}
             <div className="pt-28 pb-12 px-4" style={{ background: 'linear-gradient(170deg, #111 0%, #1a1a1a 100%)' }}>
                 <div className="max-w-3xl mx-auto">

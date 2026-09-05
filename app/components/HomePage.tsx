@@ -8,6 +8,7 @@ import FleetSection from './sections/FleetSection';
 import AboutSection from './sections/AboutSection';
 import GallerySection from './sections/GallerySection';
 import TestimonialsSection from './sections/TestimonialsSection';
+import FAQSection from './sections/FAQSection';
 import ContactSection from './sections/ContactSection';
 import Footer from './sections/Footer';
 import FloatingButtons from './FloatingButtons';
@@ -38,6 +39,8 @@ export default function HomePage() {
       <GallerySection />
       <GlowDivider />
       <TestimonialsSection />
+      <GlowDivider />
+      <FAQSection />
       <GlowDivider />
       <ContactSection />
       <Footer />
