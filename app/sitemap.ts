@@ -1,6 +1,8 @@
 import type { MetadataRoute } from 'next';
 import { fleet, destinations } from './components/data/siteData';
 
+export const dynamic = 'force-static';
+
 export default function sitemap(): MetadataRoute.Sitemap {
     const baseUrl = 'https://mahadevkrupa.vercel.app';
 

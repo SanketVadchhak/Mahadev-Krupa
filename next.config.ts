@@ -1,14 +1,16 @@
 import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
-    // Production optimizations
-    poweredByHeader: false,
-    compress: true,
+    output: 'export',
     images: {
+        unoptimized: true,
         remotePatterns: [
             { protocol: 'https', hostname: 'ik.imagekit.io' },
         ],
     },
+    // Production optimizations
+    poweredByHeader: false,
+    compress: true,
 };
 
 export default nextConfig;
