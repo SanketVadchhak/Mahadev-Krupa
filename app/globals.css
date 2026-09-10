@@ -402,3 +402,43 @@ input[type="submit"] {
     transform: translateX(-40px);
   }
 }
+
+@keyframes drive-car {
+  0% {
+    transform: translateX(-120px);
+  }
+
+  100% {
+    transform: translateX(calc(100vw + 120px));
+  }
+}
+
+@keyframes car-bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-2px);
+  }
+}
+
+.animate-drive-car {
+  animation: drive-car 16s linear infinite, car-bounce 0.4s ease-in-out infinite;
+}
+
+.animate-car-bounce {
+  animation: car-bounce 0.4s ease-in-out infinite;
+}
+
+.animate-scroll-landscape-slow {
+  animation: scroll-landscape 50s linear infinite;
+}
+
+.animate-scroll-landscape {
+  animation: scroll-landscape 25s linear infinite;
+}
+
+.animate-scroll-road {
+  animation: scroll-road 0.8s linear infinite;
+}

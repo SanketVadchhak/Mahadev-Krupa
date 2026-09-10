@@ -14,7 +14,7 @@ export default function FloatingButtons() {
     }, []);
 
     return (
-        <div className="fixed bottom-6 right-4 sm:bottom-8 sm:right-6 z-[9999] flex flex-col gap-3 pointer-events-auto">
+        <div className="fixed bottom-8 right-4 sm:bottom-10 sm:right-6 z-[9999] flex flex-col gap-3 pointer-events-auto">
             <AnimatePresence>
                 {showTop && (
                     <motion.button
