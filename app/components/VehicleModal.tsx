@@ -89,7 +89,7 @@ export default function VehicleModal({ car, onClose }: VehicleModalProps) {
                     initial={{ opacity: 0, scale: 0.93, y: 24 }}
                     animate={{ opacity: 1, scale: 1, y: 0 }}
                     exit={{ opacity: 0, scale: 0.93, y: 24 }}
-                    transition={{ duration: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
+                    transition={{ duration: 0.3, ease: 'easeInOut' }}
                     onClick={e => e.stopPropagation()}
                 >
                     {/* ── Close button ── */}

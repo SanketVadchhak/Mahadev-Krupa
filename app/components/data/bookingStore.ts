@@ -10,10 +10,24 @@ const listeners = new Set<Listener>();
 export const bookingStore = {
     /** Call this when a user clicks "Book" on a fleet card */
     selectVehicle(vehicleName: string) {
-        listeners.forEach(fn => fn(vehicleName));
+        listeners.forEach(fn => {
+            if (typeof fn === 'function') {
+                try {
+                    fn(vehicleName);
+                } catch (e) {
+                    console.error('bookingStore notify error:', e);
+                }
+            }
+        });
     },
     subscribe(fn: Listener): () => void {
-        listeners.add(fn);
-        return () => { listeners.delete(fn); };
+        if (typeof fn === 'function') {
+            listeners.add(fn);
+        }
+        return () => {
+            if (typeof fn === 'function') {
+                listeners.delete(fn);
+            }
+        };
     },
 };

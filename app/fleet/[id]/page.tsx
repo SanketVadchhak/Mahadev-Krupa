@@ -4,7 +4,6 @@ import Link from 'next/link';
 import Navbar from '@/app/components/sections/Navbar';
 import Footer from '@/app/components/sections/Footer';
 import FloatingButtons from '@/app/components/FloatingButtons';
-import QuickBookingPanel from '@/app/components/QuickBookingPanel';
 import { fleet, FleetCar } from '@/app/components/data/siteData';
 import { ChevronLeft, Users, ShieldCheck, CheckCircle2, Phone, MessageCircle, Star, Sparkles, Car, Clock } from 'lucide-react';
 
@@ -348,7 +347,6 @@ export default async function VehicleDetailPage({ params }: Props) {
 
             <Footer />
             <FloatingButtons />
-            <QuickBookingPanel />
         </main>
     );
 }

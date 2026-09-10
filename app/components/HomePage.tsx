@@ -12,7 +12,6 @@ import FAQSection from './sections/FAQSection';
 import ContactSection from './sections/ContactSection';
 import Footer from './sections/Footer';
 import FloatingButtons from './FloatingButtons';
-import QuickBookingPanel from './QuickBookingPanel';
 
 // Animated glow divider between sections
 function GlowDivider() {
@@ -45,7 +44,6 @@ export default function HomePage() {
       <ContactSection />
       <Footer />
       <FloatingButtons />
-      <QuickBookingPanel />
     </div>
   );
 }
