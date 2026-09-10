@@ -1,15 +1,13 @@
 'use client';
 
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { ChevronRight } from 'lucide-react';
 import LuxuryCarSVG from '../ui/LuxuryCarSVG';
 
 export default function HeroSection() {
-    const { scrollY } = useScroll();
-    const opacity = useTransform(scrollY, [0, 400], [1, 0]);
 
     return (
-        <section id="hero" className="relative min-h-screen flex items-center overflow-hidden">
+        <section id="hero" className="relative min-h-screen flex items-start sm:items-center overflow-hidden">
             {/* Background glow orbs — capped small on mobile to prevent overflow */}
             <div className="absolute inset-0 overflow-hidden">
                 <div className="absolute top-20 left-10 w-48 h-48 sm:w-96 sm:h-96 bg-amber-500/5 rounded-full blur-3xl" />
@@ -29,7 +27,7 @@ export default function HeroSection() {
                 </div>
             </div>
 
-            <motion.div style={{ opacity }} className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 sm:pt-24">
+            <motion.div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 sm:pt-24 pb-12 w-full">
                 <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
 
                     {/* Left — text content */}
